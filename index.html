@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Frontage — Websites for local businesses</title>
+<meta name="description" content="We help local businesses look as professional online as they already are in real life — modern websites, done for you, live in days." />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111216'/%3E%3Crect x='10.5' y='10.5' width='11' height='11' rx='3.5' fill='none' stroke='white' stroke-width='2.4'/%3E%3C/svg%3E" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="You're better in person than you are online." />
+<meta property="og:description" content="Modern, professional websites for local businesses — done for you, live in days." />
+<meta property="og:image" content="og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="You're better in person than you are online." />
+<meta name="twitter:description" content="Modern, professional websites for local businesses — done for you, live in days." />
+<meta name="twitter:image" content="og-image.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:       #f6f7f8;
+  --bg-2:     #fafbfb;
+  --ink:      #111216;
+  --ink-soft: #34353d;
+  --muted:    #6c6e77;
+  --faint:    #9a9ca3;
+  --line:     rgba(17,18,22,.09);
+  --line-2:   rgba(17,18,22,.14);
+  --white:    #ffffff;
+  --r-btn:14px; --r-card:22px; --r-xl:32px;
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --fd:'Inter Tight','Inter',sans-serif;
+  --shadow-btn:0 10px 24px -10px rgba(17,18,22,.5);
+  --irid:linear-gradient(130deg, rgba(255,182,202,.5), rgba(255,212,178,.36) 26%, rgba(202,188,255,.46) 54%, rgba(160,208,255,.46) 80%, rgba(170,236,218,.38));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:var(--f);background:var(--bg);color:var(--ink);line-height:1.5;letter-spacing:-0.011em;font-size:16px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--ink);color:#fff}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
+
+h1,h2,h3{font-family:var(--fd);font-weight:700;line-height:1.0;letter-spacing:-0.035em;color:var(--ink)}
+.lead{font-size:clamp(16px,1.5vw,19px);color:var(--muted);line-height:1.5;font-weight:400}
+
+/* Buttons — black = grounding */
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;height:54px;padding:0 28px;border-radius:var(--r-btn);font-size:15.5px;font-weight:600;border:1px solid transparent;cursor:pointer;transition:all .2s var(--ease);white-space:nowrap;font-family:var(--fd);letter-spacing:-0.01em}
+.btn-primary{background:var(--ink);color:#fff;box-shadow:var(--shadow-btn),inset 0 1px 0 rgba(255,255,255,.2);position:relative;overflow:hidden}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -12px rgba(17,18,22,.6),inset 0 1px 0 rgba(255,255,255,.2)}
+.btn-primary::after{content:"";position:absolute;top:0;bottom:0;left:-75%;width:50%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-16deg);pointer-events:none;transition:left .6s var(--ease)}
+.btn-primary:hover::after{left:135%}
+.btn-primary > *{position:relative;z-index:1}
+.btn-glass{background:rgba(255,255,255,.6);color:var(--ink);border-color:var(--line-2);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.btn-glass:hover{background:rgba(255,255,255,.85);border-color:var(--ink);transform:translateY(-2px)}
+.btn .arr{transition:transform .2s var(--ease)}
+.btn:hover .arr{transform:translate(3px,-3px)}
+
+.wash{position:absolute;inset:-7%;z-index:0;pointer-events:none;will-change:transform;transform-origin:center}
+/* slow, breathing drift — like the sky moving */
+.hero .wash{animation:skyA 26s ease-in-out infinite}
+.why .wash{animation:skyB 32s ease-in-out infinite -7s}
+.close .wash{animation:skyA 28s ease-in-out infinite -12s}
+@keyframes skyA{0%,100%{transform:scale(1.02) translate3d(0,0,0)}50%{transform:scale(1.07) translate3d(1.5%,-1.1%,0)}}
+@keyframes skyB{0%,100%{transform:scale(1.05) translate3d(-1.1%,.5%,0)}50%{transform:scale(1.01) translate3d(1.1%,-.6%,0)}}
+
+/* frosted glass + iridescent liquid rim */
+.glass{
+  background:linear-gradient(155deg, rgba(255,255,255,.6), rgba(255,255,255,.32));
+  backdrop-filter:blur(26px) saturate(1.9);
+  -webkit-backdrop-filter:blur(26px) saturate(1.9);
+  border:1px solid rgba(255,255,255,.96);
+  box-shadow:inset 0 2px 1px rgba(255,255,255,1),inset 0 0 0 1px rgba(255,255,255,.4),inset 0 -26px 48px -34px rgba(60,90,200,.26),0 34px 64px -26px rgba(24,42,100,.42),0 10px 22px -12px rgba(24,42,100,.24);
+}
+.hpanel,.problem .card,.close-panel{position:relative}
+.hpanel::after,.problem .card::after,.close-panel::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1.1px;
+  background:var(--irid);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:.5;pointer-events:none;z-index:3}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.04;mix-blend-mode:overlay;border-radius:inherit;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ============ OPENING SEQUENCE ============ */
+#intro{position:fixed;inset:0;z-index:9999;background:#f7f8fa;display:grid;place-items:center;
+  animation:introOut .7s var(--ease) 1.05s forwards}
+#intro .orb{width:min(236px,46vw);aspect-ratio:1/1;border-radius:50%;position:relative;
+  animation:orbIn 1s var(--ease) both, orbOut .62s var(--ease) 1.02s forwards}
+#intro .orb::before{content:"";position:absolute;inset:-9%;border-radius:50%;
+  background:conic-gradient(from 210deg,#ffd9c2,#ffc2da,#d9c2ff,#c2dcff,#c2f5e6,#ffe9c6,#ffd9c2);
+  filter:blur(26px);opacity:.92;animation:spin 7s linear infinite}
+#intro .orb::after{content:"";position:absolute;inset:9%;border-radius:50%;
+  background:radial-gradient(circle at 50% 40%,#ffffff,rgba(255,255,255,.4) 54%,rgba(255,255,255,0) 76%);
+  box-shadow:inset 0 2px 14px rgba(255,255,255,.95),0 30px 60px -20px rgba(120,120,160,.32)}
+@keyframes orbIn{0%{opacity:0;transform:scale(.55)}55%{opacity:1}100%{opacity:1;transform:scale(1)}}
+@keyframes orbOut{to{opacity:0;transform:translateY(-30px) scale(1.24)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes introOut{to{opacity:0;visibility:hidden;transform:scale(1.04)}}
+
+/* ============ NAV ============ */
+header.nav{position:sticky;top:0;z-index:100;background:rgba(246,247,248,.6);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid transparent;transition:border-color .25s,background .25s}
+header.nav.scrolled{border-bottom-color:var(--line);background:rgba(246,247,248,.85)}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--fd);font-weight:700;font-size:19px;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-size:15px;color:var(--ink-soft);font-weight:450;transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-right .btn{height:44px;padding:0 20px;font-size:14.5px}
+
+/* ============ HERO ============ */
+.hero{position:relative;overflow:hidden;text-align:center;background:#ffffff}
+.hero .wash{background:
+  radial-gradient(38% 26% at 50% 80%, rgba(180,166,255,.26), transparent 60%),
+  radial-gradient(32% 24% at 14% 84%, rgba(150,206,255,.24), transparent 58%),
+  radial-gradient(34% 26% at 86% 82%, rgba(255,182,156,.24), transparent 58%),
+  radial-gradient(50% 28% at 50% 117%, rgba(196,182,255,.15), transparent 60%);}
+.hero-inner{position:relative;z-index:2;padding:118px 0 130px;max-width:960px;margin:0 auto}
+.hero h1{font-family:var(--fd);font-weight:500;font-size:clamp(46px,7.4vw,99px);letter-spacing:-0.04em;line-height:.98}
+.hero h1 .ln{display:block;padding-bottom:.02em}
+.hero h1 .ln > i{display:block;font-style:normal;opacity:0;filter:blur(18px);transform:scale(1.06);will-change:filter,transform,opacity;animation:titleIn 1.15s var(--ease) both}
+.hero h1 .ln:nth-child(1) > i{animation-delay:1.0s}
+.hero h1 .ln:nth-child(2) > i{animation-delay:1.14s}
+.hero .lead{margin:30px auto 0;max-width:560px;font-size:clamp(17px,1.7vw,21px);animation:heroIn .9s var(--ease) 1.34s both}
+.hero-actions{display:flex;gap:14px;justify-content:center;margin-top:42px;animation:heroIn .9s var(--ease) 1.46s both}
+@keyframes heroIn{from{opacity:0;transform:translateY(7px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes titleIn{0%{opacity:0;filter:blur(18px);transform:scale(1.06)}55%{opacity:1}100%{opacity:1;filter:blur(0);transform:none}}
+
+.hero-panels{position:relative;z-index:2;display:grid;grid-template-columns:repeat(auto-fit,minmax(244px,1fr));gap:16px;max-width:920px;margin:56px auto 0;text-align:left;animation:heroIn .9s var(--ease) 1.54s both}
+.hpanel{border-radius:18px;padding:24px;
+  background:
+    radial-gradient(240px circle at var(--mx,50%) var(--my,-40%), rgba(255,255,255,.85), transparent 60%),
+    linear-gradient(160deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+  backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.96);
+  box-shadow:inset 0 2px 1px rgba(255,255,255,1),inset 0 0 0 1px rgba(255,255,255,.5),0 32px 58px -24px rgba(96,84,185,.36),0 14px 30px -14px rgba(150,120,210,.26);
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+.hpanel:hover{transform:translateY(-5px);box-shadow:inset 0 1.5px 0 rgba(255,255,255,1),0 46px 80px -30px rgba(96,84,185,.42),0 14px 30px -14px rgba(155,120,215,.32)}
+.hpanel b{font-family:var(--fd);font-size:18px;font-weight:700;letter-spacing:-0.02em;display:block;margin:14px 0 6px}
+.hpanel p{font-size:14px;color:var(--muted);line-height:1.5}
+.check{width:30px;height:30px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.check svg{width:15px;height:15px;color:#fff}
+
+/* ============ MARQUEE (lightweight social proof) ============ */
+.marquee{position:relative;overflow:hidden;padding:30px 0;background:#fff;border-top:1px solid var(--line);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 13%,#000 87%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 13%,#000 87%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:30px;width:max-content;animation:marq 80s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee .mq{font-family:var(--fd);font-weight:500;font-size:clamp(15px,1.7vw,19px);letter-spacing:-0.012em;color:var(--muted);white-space:nowrap}
+.marquee .sep{width:5px;height:5px;border-radius:50%;background:var(--line-2);flex:none}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ============ SECTION SCAFFOLD ============ */
+.sec{position:relative;overflow:hidden;padding:120px 0}
+.sec-head{text-align:center;max-width:760px;margin:0 auto 64px;position:relative;z-index:2}
+.sec-head h2{font-size:clamp(34px,5vw,62px);font-weight:600;letter-spacing:-0.035em;line-height:1.02;text-wrap:balance}
+.sec-head p{margin:22px auto 0;max-width:560px;text-wrap:balance}
+
+/* problem — pure white, glass cards carry their own look */
+.problem{background:#ffffff;border-top:1px solid var(--line)}
+.problem .wash{display:none}
+.cards{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border-radius:var(--r-card);padding:30px;min-height:272px;display:flex;flex-direction:column;transition:transform .24s var(--ease),box-shadow .24s var(--ease)}
+.problem .card{
+  background:
+    radial-gradient(280px circle at var(--mx,50%) var(--my,-40%), rgba(255,255,255,.9), transparent 60%),
+    linear-gradient(162deg, rgba(255,255,255,.97), rgba(248,251,254,.8));
+  backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35);
+  border:1px solid rgba(22,42,92,.07);
+  box-shadow:inset 0 2px 1px rgba(255,255,255,1),inset 0 0 0 1px rgba(255,255,255,.6),inset 0 -24px 44px -34px rgba(60,90,200,.13),0 34px 60px -28px rgba(24,42,100,.32),0 10px 22px -12px rgba(24,42,100,.16);
+}
+.problem .card:hover{transform:translateY(-6px);box-shadow:inset 0 1.5px 0 rgba(255,255,255,1),0 44px 76px -30px rgba(24,42,100,.38),0 10px 24px -12px rgba(24,42,100,.2)}
+.card .crow{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:auto}
+.card .ic{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.85);border:1px solid var(--line-2);display:grid;place-items:center;box-shadow:0 6px 14px -8px rgba(24,42,100,.3),inset 0 1px 0 rgba(255,255,255,.9)}
+.card .ic svg{width:22px;height:22px;color:var(--ink)}
+.card .num{font-family:var(--fd);font-size:14px;font-weight:600;color:var(--faint)}
+.card h3{font-size:22px;font-weight:700;letter-spacing:-0.03em;margin:24px 0 10px}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.55}
+
+/* ============ WHY US — iridescent diagonal wash, bottom clean ============ */
+.why{position:relative;overflow:hidden;padding:120px 0;background:#ffffff;border-top:1px solid var(--line)}
+/* lilac on the left, dissolving into a bright reflective glass-white on the right */
+.why .wash{
+  background:
+    radial-gradient(38% 50% at -2% 18%, rgba(176,158,255,.36), transparent 54%),
+    radial-gradient(48% 56% at -10% 12%, rgba(202,186,255,.15), transparent 54%),
+    linear-gradient(101deg, transparent 32%, rgba(255,255,255,.78) 60%, #ffffff 92%),
+    linear-gradient(107deg, transparent 56.5%, rgba(255,255,255,.95) 62%, transparent 68%),
+    radial-gradient(44% 58% at 103% 50%, #ffffff, transparent 60%);
+}
+.why-inner{position:relative;z-index:2;display:grid;grid-template-columns:.92fr 1.08fr;gap:72px;align-items:start}
+.why-copy h2{font-size:clamp(32px,3.8vw,50px);font-weight:600;letter-spacing:-0.035em;line-height:1.04}
+.why-copy p{margin:24px 0 0;max-width:380px}
+.why-copy .btn{margin-top:34px}
+.feat{display:flex;flex-direction:column}
+.feat .row{display:flex;gap:18px;padding:26px 0;border-top:1px solid var(--line)}
+.feat .row:first-child{border-top:none;padding-top:0}
+.feat .row:last-child{padding-bottom:0}
+.feat .cc{width:30px;height:30px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none;margin-top:2px}
+.feat .cc svg{width:15px;height:15px;color:#fff}
+.feat .rt b{font-family:var(--fd);font-size:18px;font-weight:700;letter-spacing:-0.02em;display:block;margin-bottom:6px}
+.feat .rt p{font-size:14.5px;color:var(--muted);line-height:1.55;max-width:460px}
+
+/* ============ CLOSING — iridescent depth behind glass panel ============ */
+.close{position:relative;overflow:hidden;padding:30px 0 130px}
+/* cohesive, diffused cool blend — blue, cyan, lilac */
+.close .wash{
+  background:
+    radial-gradient(64% 66% at 18% 20%, rgba(116,168,255,.32), transparent 68%),
+    radial-gradient(62% 64% at 86% 30%, rgba(84,206,236,.32), transparent 68%),
+    radial-gradient(68% 68% at 50% 110%, rgba(172,168,255,.30), transparent 68%),
+    radial-gradient(56% 58% at 94% 88%, rgba(140,214,244,.22), transparent 68%),
+    radial-gradient(64% 62% at 50% 46%, rgba(255,255,255,.26), transparent 70%);
+}
+.close-panel{position:relative;z-index:2;border-radius:var(--r-xl);padding:72px 48px;text-align:center;overflow:hidden;
+  background:linear-gradient(160deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+  backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.96);
+  box-shadow:inset 0 2px 1px rgba(255,255,255,1),inset 0 0 0 1px rgba(255,255,255,.5),0 44px 84px -28px rgba(96,84,185,.4),0 16px 36px -16px rgba(150,120,210,.28)}
+.close-panel .sheen{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;
+  background:linear-gradient(125deg, rgba(176,232,255,.24), transparent 38%, transparent 62%, rgba(168,194,255,.24));mix-blend-mode:screen}
+.close-panel h2,.close-panel p,.close-panel .btn{position:relative;z-index:2}
+.close-panel h2{font-size:clamp(36px,4.6vw,64px);font-weight:500;letter-spacing:-0.038em;line-height:1.02;max-width:18ch;margin:0 auto;text-wrap:balance}
+.close-panel p{margin:22px auto 0;max-width:420px;text-wrap:balance}
+.close-panel .btn{margin-top:38px}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);background:var(--bg-2)}
+.foot-inner{padding:40px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-nav{display:flex;gap:30px}
+.foot-nav a{font-size:14px;color:var(--muted);transition:color .15s}
+.foot-nav a:hover{color:var(--ink)}
+.foot-brand{font-family:var(--fd);font-weight:600;font-size:19px;letter-spacing:-0.03em;color:var(--ink)}
+.foot-inner .cpy{font-size:13px;color:var(--faint)}
+
+/* modern micro-interactions */
+.hpanel:hover::after,.problem .card:hover::after,.close-panel:hover::after{opacity:.82}
+#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:9997;background:linear-gradient(90deg,#7aa0ff,#5ac8e6,#b0a0ff);box-shadow:0 0 10px rgba(120,160,255,.5);pointer-events:none}
+p{text-wrap:pretty}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
+
+/* reveal on scroll */
+section[id]{scroll-margin-top:88px}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+  .reveal{opacity:1 !important;transform:none !important}
+  .hero h1 .ln > i{transform:none !important;filter:none !important;opacity:1 !important}
+  #intro{display:none !important}
+  html{scroll-behavior:auto}
+}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .cards{grid-template-columns:1fr}
+  .why-inner{grid-template-columns:1fr;gap:44px}
+  .why-copy{text-align:center}
+  .why-copy p{margin-left:auto;margin-right:auto}
+}
+@media(max-width:620px){
+  .nav-links{display:none}
+  .nav-right .btn-glass{display:none}
+  .hero-inner{padding:78px 0 92px}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{width:100%}
+  .hero-panels{grid-template-columns:1fr}
+  .sec,.why{padding:84px 0}
+  .close-panel{padding:60px 26px}
+  .foot-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ============ OPENING ============ -->
+<div id="intro" aria-hidden="true"><div class="orb"></div></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wash"></div>
+  <div class="wrap hero-inner">
+    <h1><span class="ln"><i>You're better in person</i></span><span class="ln"><i>than you are online.</i></span></h1>
+    <p class="lead">We help local businesses look as professional online as they already are in real life.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Get a Free Website Review <svg class="arr" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M6 4h6v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#why" class="btn btn-glass">How it works</a>
+    </div>
+    <div class="hero-panels">
+      <div class="hpanel"><span class="check"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>No contracts</b><p>Pay once for the work. Stay because you want to, never because you're trapped.</p></div>
+      <div class="hpanel"><span class="check"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>You own everything</b><p>The domain, the site, and the content are all yours — no lock-in, ever.</p></div>
+      <div class="hpanel"><span class="check"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Done in days, not months</b><p>Most sites go live in days, with no endless rounds of revisions.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<section class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="mq">Restaurants</span><i class="sep"></i><span class="mq">Clinics</span><i class="sep"></i><span class="mq">Studios</span><i class="sep"></i><span class="mq">Shops</span><i class="sep"></i><span class="mq">Cafés</span><i class="sep"></i><span class="mq">Salons</span><i class="sep"></i><span class="mq">Dentists</span><i class="sep"></i><span class="mq">Florists</span><i class="sep"></i><span class="mq">Gyms</span><i class="sep"></i><span class="mq">Boutiques</span><i class="sep"></i><span class="mq">Bakeries</span><i class="sep"></i><span class="mq">Law firms</span><i class="sep"></i>
+    <span class="mq">Restaurants</span><i class="sep"></i><span class="mq">Clinics</span><i class="sep"></i><span class="mq">Studios</span><i class="sep"></i><span class="mq">Shops</span><i class="sep"></i><span class="mq">Cafés</span><i class="sep"></i><span class="mq">Salons</span><i class="sep"></i><span class="mq">Dentists</span><i class="sep"></i><span class="mq">Florists</span><i class="sep"></i><span class="mq">Gyms</span><i class="sep"></i><span class="mq">Boutiques</span><i class="sep"></i><span class="mq">Bakeries</span><i class="sep"></i><span class="mq">Law firms</span><i class="sep"></i>
+  </div>
+</section>
+
+<!-- ============ THE PROBLEM ============ -->
+<section class="sec problem" id="problem">
+  <div class="wash"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>A great business loses customers to a poor website.</h2>
+      <p class="lead">Most local sites fail at three simple things — and each one quietly sends customers to a competitor.</p>
+    </div>
+    <div class="cards">
+      <div class="card glass reveal">
+        <div class="crow">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <span class="num">01</span>
+        </div>
+        <h3>Customers can't find you.</h3>
+        <p>You don't show up where people search. The ones looking for exactly what you offer never make it to your door.</p>
+      </div>
+      <div class="card glass reveal">
+        <div class="crow">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5v3a2 2 0 01-2 2A14 14 0 015 6a2 2 0 012-2" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+          <span class="num">02</span>
+        </div>
+        <h3>Customers can't contact you.</h3>
+        <p>Hours are wrong, the phone number is buried, the form is broken. Reaching you takes more effort than it should.</p>
+      </div>
+      <div class="card glass reveal">
+        <div class="crow">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5c0 4-3 6.5-7 8-4-1.5-7-4-7-8V7z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="num">03</span>
+        </div>
+        <h3>Customers don't trust you.</h3>
+        <p>An outdated site makes a strong business look uncertain. People decide in seconds — and a dated page costs you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="why" id="why">
+  <div class="wash"></div>
+  <div class="wrap why-inner">
+    <div class="why-copy reveal">
+      <h2>Built for owners who'd rather run their business.</h2>
+      <p class="lead">You shouldn't need a marketing department to look professional online. We make the whole thing effortless — and the result is yours to keep.</p>
+      <a href="#contact" class="btn btn-primary">Get a Free Website Review <svg class="arr" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M6 4h6v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="feat reveal">
+      <div class="row"><span class="cc"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="rt"><b>Done-for-you</b><p>You don't touch a thing. We write, design, build, and publish the entire site.</p></div></div>
+      <div class="row"><span class="cc"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="rt"><b>Fast turnaround</b><p>Most sites go live in days. No three-month timelines, no endless revisions.</p></div></div>
+      <div class="row"><span class="cc"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="rt"><b>Professional design</b><p>The same standard of polish you'd expect from a top software company — applied to your business.</p></div></div>
+      <div class="row"><span class="cc"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="rt"><b>You own everything</b><p>The domain, the site, the content — all yours. No lock-in, no hostage situations.</p></div></div>
+      <div class="row"><span class="cc"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="rt"><b>No ongoing contracts</b><p>Pay once for the work. Stay because you want to, never because you're trapped.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="close" id="contact">
+  <div class="wash"></div>
+  <div class="wrap">
+    <div class="close-panel glass reveal">
+      <div class="grain"></div>
+      <div class="sheen"></div>
+      <h2>Let's make your business look the part.</h2>
+      <p class="lead">One short call. We design it, build it, and handle the rest.</p>
+      <a href="mailto:hello@frontage.co" class="btn btn-primary">Get a Free Website Review <svg class="arr" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M6 4h6v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-inner">
+    <a class="foot-brand" href="#top">Frontage</a>
+    <nav class="foot-nav">
+      <a href="#problem">The problem</a>
+      <a href="#why">Why us</a>
+      <a href="#contact">Contact</a>
+      <a href="#top">Privacy</a>
+    </nav>
+    <span class="cpy">© 2026 Frontage</span>
+  </div>
+</footer>
+
+<script>
+// opening sequence cleanup / skip
+const intro=document.getElementById('intro');
+if(intro){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){intro.remove();}
+  else{
+    intro.addEventListener('click',()=>intro.remove());
+    setTimeout(()=>{intro && intro.remove();},1850);
+  }
+}
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*80+'ms';io.observe(el)});
+// cursor-reactive glass
+document.querySelectorAll('.hpanel,.problem .card').forEach(c=>{
+  c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');},{passive:true});
+  c.addEventListener('pointerleave',()=>c.style.setProperty('--my','-40%'),{passive:true});
+});
+// scroll progress
+const prog=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?scrollY/h*100:0)+'%';},{passive:true});
+</script>
+</body>
+</html>
