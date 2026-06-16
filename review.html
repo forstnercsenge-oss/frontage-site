@@ -106,9 +106,12 @@ footer{position:relative;z-index:2;text-align:center;padding:20px;font-size:12.5
       <h1>Get a free website review.</h1>
       <p class="lead">Tell us a little about your business and we'll send back honest, specific notes on your online presence — within one business day. No pressure, no jargon.</p>
 
-      <form id="reviewForm" novalidate>
+      <form id="reviewForm" action="https://formsubmit.co/hello@frontage.co" method="POST">
         <!-- FormSubmit (no account / no key needed) -->
         <input type="hidden" name="_subject" value="New website review request — Frontage" />
+        <input type="hidden" name="_next" value="https://frontage.co/thanks.html" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
         <div class="field">
@@ -132,7 +135,6 @@ footer{position:relative;z-index:2;text-align:center;padding:20px;font-size:12.5
           <textarea id="message" name="message" placeholder="Anything you'd like us to look at."></textarea>
         </div>
 
-        <div class="err" id="errBox">Something went wrong sending that. Please try again, or email hello@frontage.co.</div>
         <button class="btn" type="submit" id="submitBtn">Request my free review
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -140,12 +142,6 @@ footer{position:relative;z-index:2;text-align:center;padding:20px;font-size:12.5
       </form>
     </div>
 
-    <div class="success" id="success">
-      <div class="tick"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h2>Thanks — that's in.</h2>
-      <p>We've got your details and we'll be in touch within one business day with your free review.</p>
-      <a class="home" href="index.html">Back to home</a>
-    </div>
   </div>
 </main>
 
@@ -154,32 +150,7 @@ footer{position:relative;z-index:2;text-align:center;padding:20px;font-size:12.5
 <script>
 const form = document.getElementById('reviewForm');
 const btn = document.getElementById('submitBtn');
-const errBox = document.getElementById('errBox');
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  errBox.style.display = 'none';
-  if (!form.checkValidity()) { form.reportValidity(); return; }
-  btn.disabled = true; btn.textContent = 'Sending…';
-  try {
-    const data = new FormData(form);
-    const obj = Object.fromEntries(data.entries());
-    const res = await fetch('https://formsubmit.co/ajax/hello@frontage.co', {
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify(obj)
-    });
-    const json = await res.json();
-    if (json.success === true || json.success === 'true') {
-      document.getElementById('formWrap').style.display = 'none';
-      document.getElementById('success').style.display = 'block';
-      window.scrollTo({top:0, behavior:'smooth'});
-    } else { throw new Error(json.message || 'failed'); }
-  } catch (err) {
-    errBox.style.display = 'block';
-    btn.disabled = false;
-    btn.innerHTML = 'Request my free review <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  }
-});
+form.addEventListener('submit', () => { btn.disabled = true; btn.textContent = 'Sending…'; });
 </script>
 </body>
 </html>
