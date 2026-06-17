@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Frontage — Websites for local businesses</title>
+<meta name="description" content="We build modern, professional websites for local businesses — done for you, live in days. You own everything." />
+<meta name="theme-color" content="#f6f7f8" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111216'/%3E%3Cpath d='M11 22V10h10M11 16h7' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:        #f6f7f8;
+  --bg-2:      #fafbfb;
+  --ink:       #111216;
+  --ink-soft:  #34353d;
+  --muted:     #6c6e77;
+  --faint:     #9a9ca3;
+  --line:      rgba(17,18,22,.09);
+  --line-2:    rgba(17,18,22,.14);
+  --white:     #ffffff;
+  --r-btn:14px; --r-card:20px; --r-xl:30px;
+  --maxw:1140px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --fd:'Inter Tight','Inter',sans-serif;
+  --shadow-sm:0 1px 2px rgba(17,18,22,.04),0 6px 16px -10px rgba(17,18,22,.18);
+  --shadow-lg:0 1px 0 rgba(17,18,22,.04),0 34px 64px -30px rgba(24,42,100,.32),0 12px 26px -16px rgba(24,42,100,.18);
+  --irid:linear-gradient(130deg, rgba(255,182,202,.5), rgba(255,212,178,.36) 26%, rgba(202,188,255,.46) 54%, rgba(160,208,255,.46) 80%, rgba(170,236,218,.38));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:var(--f);background:var(--bg);color:var(--ink);line-height:1.5;letter-spacing:-0.011em;font-size:16px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--ink);color:#fff}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--fd);font-weight:600;line-height:1.04;letter-spacing:-0.032em;color:var(--ink)}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--muted);line-height:1.55;font-weight:400}
+.eyebrow{font-family:var(--fd);font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)}
+
+/* iridescent rim helper (restrained) */
+.irim{position:relative}
+.irim::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.1px;background:var(--irid);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:.45;pointer-events:none;z-index:3;transition:opacity .25s}
+.irim:hover::after{opacity:.7}
+
+/* breathing aurora wash (their signature, dialed back) */
+.wash{position:absolute;inset:-8%;z-index:0;pointer-events:none;will-change:transform}
+.hero .wash{animation:sky 30s ease-in-out infinite}
+.close .wash{animation:sky 34s ease-in-out infinite -10s}
+@keyframes sky{0%,100%{transform:scale(1.02) translate3d(0,0,0)}50%{transform:scale(1.06) translate3d(1.2%,-1%,0)}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;height:50px;padding:0 24px;border-radius:var(--r-btn);font-size:14.5px;font-weight:600;border:1px solid transparent;cursor:pointer;transition:transform .18s var(--ease),background .18s,border-color .18s,box-shadow .18s;white-space:nowrap;font-family:var(--fd);letter-spacing:-0.01em}
+.btn-primary{background:var(--ink);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 10px 24px -10px rgba(17,18,22,.5);position:relative;overflow:hidden}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 16px 32px -12px rgba(17,18,22,.55)}
+.btn-primary::after{content:"";position:absolute;top:0;bottom:0;left:-75%;width:50%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-16deg);pointer-events:none;transition:left .6s var(--ease)}
+.btn-primary:hover::after{left:135%}
+.btn-primary>*{position:relative;z-index:1}
+.btn-glass{background:rgba(255,255,255,.6);color:var(--ink);border-color:var(--line-2);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.btn-glass:hover{background:rgba(255,255,255,.85);border-color:var(--ink);transform:translateY(-2px)}
+.btn-sm{height:40px;padding:0 16px;font-size:14px}
+.arr{transition:transform .18s var(--ease)}.btn:hover .arr{transform:translateX(2px)}
+
+/* ---------- nav ---------- */
+header.nav{position:sticky;top:0;z-index:100;background:rgba(246,247,248,.6);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid transparent;transition:border-color .25s,background .25s}
+header.nav.scrolled{border-bottom-color:var(--line);background:rgba(246,247,248,.85)}
+.nav-inner{height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-weight:700;font-size:19px;letter-spacing:-0.03em}
+.brand .mark{width:27px;height:27px;border-radius:8px;background:var(--ink);display:grid;place-items:center;flex:none}
+.brand .mark svg{width:15px;height:15px}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:15px;color:var(--ink-soft);font-weight:450;transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;text-align:center;overflow:hidden;background:#fff}
+.hero .wash{background:
+  radial-gradient(40% 30% at 50% 78%, rgba(180,166,255,.30), transparent 60%),
+  radial-gradient(34% 26% at 12% 86%, rgba(150,206,255,.26), transparent 58%),
+  radial-gradient(34% 26% at 88% 82%, rgba(255,182,156,.24), transparent 58%),
+  radial-gradient(50% 30% at 50% 116%, rgba(196,182,255,.16), transparent 60%);}
+.hero-inner{position:relative;z-index:2;padding:80px 0 0;max-width:880px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:100px;background:rgba(255,255,255,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:13px;font-weight:500;color:var(--ink-soft);box-shadow:var(--shadow-sm)}
+.tag::after{opacity:.6}
+.tag .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.16)}
+.hero h1{font-family:var(--fd);font-weight:500;font-size:clamp(42px,6.6vw,82px);letter-spacing:-0.04em;line-height:1.0;margin-top:24px}
+.hero h1 span{display:block}
+.hero h1 .dim{color:var(--muted)}
+.hero .lead{margin:24px auto 0;max-width:520px;font-size:clamp(16px,1.6vw,19px)}
+.hero-actions{display:flex;gap:12px;justify-content:center;margin-top:32px}
+.hero-meta{display:flex;gap:26px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.hero-meta .mi{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted);font-weight:450}
+.hero-meta .mi .ck{width:20px;height:20px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.hero-meta .mi .ck svg{width:11px;height:11px;color:#fff}
+
+/* showcase browser frame — glass-trimmed */
+.showcase{position:relative;z-index:2;max-width:980px;margin:60px auto 0;padding:0 28px}
+.frame{display:block;border-radius:16px;overflow:hidden;background:#fff;
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),0 40px 80px -30px rgba(24,42,100,.42),0 16px 32px -18px rgba(24,42,100,.24);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.frame::after{opacity:.5}
+.frame:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),0 56px 96px -34px rgba(24,42,100,.5),0 18px 34px -20px rgba(24,42,100,.28)}
+.frame .bar{height:38px;display:flex;align-items:center;gap:7px;padding:0 14px;background:linear-gradient(180deg,#f7f8fb,#eef0f5);border-bottom:1px solid var(--line)}
+.frame .bar i{width:10px;height:10px;border-radius:50%;background:#cdd2dd;display:block}
+.frame .bar .url{margin-left:12px;height:22px;flex:1;max-width:340px;border-radius:6px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;padding:0 10px;font-size:11.5px;color:var(--faint);font-family:var(--f)}
+.frame .shot{display:block;width:100%}
+
+/* ---------- section scaffold ---------- */
+.sec{position:relative;padding:104px 0}
+.sec-head{max-width:680px;margin:0 auto 56px;text-align:center;position:relative;z-index:2}
+.sec-head h2{font-size:clamp(30px,4vw,50px);font-weight:600;letter-spacing:-0.035em;line-height:1.03;text-wrap:balance}
+.sec-head p{margin:18px auto 0;max-width:520px;text-wrap:balance}
+.divide{border-top:1px solid var(--line)}
+
+/* ---------- work strip ---------- */
+.work{background:linear-gradient(180deg,#fff,#fbfcfd)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.wcard{display:block;border-radius:var(--r-card);overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.96),rgba(248,251,254,.86));
+  border:1px solid rgba(22,42,92,.07);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 30px 56px -30px rgba(24,42,100,.3),0 10px 22px -14px rgba(24,42,100,.16);
+  transition:transform .24s var(--ease),box-shadow .24s var(--ease)}
+.wcard:hover{transform:translateY(-6px);box-shadow:inset 0 1px 0 rgba(255,255,255,1),0 44px 74px -32px rgba(24,42,100,.4),0 12px 26px -14px rgba(24,42,100,.22)}
+.wcard .tbar{height:30px;display:flex;align-items:center;gap:5px;padding:0 12px;background:linear-gradient(180deg,#f7f8fb,#eef0f5);border-bottom:1px solid var(--line)}
+.wcard .tbar i{width:7px;height:7px;border-radius:50%;background:#cdd2dd}
+.wcard .thumb{aspect-ratio:16/10;overflow:hidden;position:relative;background:#f3f3f1}
+.wcard .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s var(--ease)}
+.wcard:hover .thumb img{transform:scale(1.03)}
+.wcard .meta{display:flex;align-items:center;justify-content:space-between;padding:16px 18px}
+.wcard .meta b{font-family:var(--fd);font-weight:700;font-size:15px;letter-spacing:-0.02em}
+.wcard .meta span{font-size:13px;color:var(--faint)}
+.work-more{display:flex;justify-content:center;margin-top:36px}
+
+/* ---------- problem (glass cards, restrained) ---------- */
+.problem{background:#fff}
+.problem .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.problem .card{border-radius:var(--r-card);padding:30px;min-height:220px;display:flex;flex-direction:column;
+  background:linear-gradient(162deg,rgba(255,255,255,.97),rgba(248,251,254,.82));
+  border:1px solid rgba(22,42,92,.07);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 30px 56px -32px rgba(24,42,100,.28),0 8px 20px -14px rgba(24,42,100,.14);
+  transition:transform .24s var(--ease),box-shadow .24s var(--ease)}
+.problem .card:hover{transform:translateY(-6px);box-shadow:inset 0 1px 0 rgba(255,255,255,1),0 44px 72px -32px rgba(24,42,100,.36)}
+.problem .card .num{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--faint);margin-bottom:auto}
+.problem .card .ic{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.85);border:1px solid var(--line-2);display:grid;place-items:center;box-shadow:0 6px 14px -8px rgba(24,42,100,.3),inset 0 1px 0 rgba(255,255,255,.9);margin-bottom:auto}
+.problem .card .ic svg{width:22px;height:22px;color:var(--ink)}
+.problem .card .crow{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:auto}
+.problem .card h3{font-size:20px;font-weight:700;letter-spacing:-0.025em;margin:24px 0 9px}
+.problem .card p{font-size:14px;color:var(--muted);line-height:1.55}
+
+/* ---------- process ---------- */
+.why{background:linear-gradient(180deg,#fbfcfd,#fff);position:relative;overflow:hidden}
+.process-inner{position:relative;z-index:2;display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+.process-copy h2{font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-0.032em;line-height:1.05}
+.process-copy p{margin:20px 0 0;max-width:360px}
+.process-copy .btn{margin-top:28px}
+.steps{display:flex;flex-direction:column}
+.step{display:flex;gap:20px;padding:26px 0;border-top:1px solid var(--line)}
+.step:first-child{border-top:none;padding-top:0}
+.step:last-child{padding-bottom:0}
+.step .sn{font-family:var(--fd);font-size:14px;font-weight:700;color:#fff;width:32px;height:32px;background:var(--ink);border-radius:50%;display:grid;place-items:center;flex:none}
+.step b{font-family:var(--fd);font-size:17px;font-weight:700;letter-spacing:-0.02em;display:block;margin-bottom:6px}
+.step p{font-size:14px;color:var(--muted);line-height:1.55;max-width:440px}
+
+/* ---------- testimonial ---------- */
+.quote{text-align:center;max-width:800px;margin:0 auto}
+.quote blockquote{font-family:var(--fd);font-weight:500;font-size:clamp(23px,2.9vw,34px);line-height:1.26;letter-spacing:-0.028em;text-wrap:balance}
+.quote .by{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:28px}
+.quote .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(150deg,#cdab86,#7a5a3a);display:grid;place-items:center;color:#fff;font-family:var(--fd);font-weight:700;font-size:15px}
+.quote .who{text-align:left}
+.quote .who b{font-family:var(--fd);font-weight:700;font-size:14.5px;display:block;letter-spacing:-0.01em}
+.quote .who span{font-size:13px;color:var(--faint)}
+
+/* ---------- closing (glass on aurora — their signature, refined) ---------- */
+.close{position:relative;overflow:hidden;padding:30px 0 110px}
+.close .wash{background:
+  radial-gradient(60% 64% at 18% 22%, rgba(116,168,255,.30), transparent 66%),
+  radial-gradient(58% 60% at 86% 30%, rgba(84,206,236,.28), transparent 66%),
+  radial-gradient(66% 66% at 50% 112%, rgba(172,168,255,.28), transparent 68%),
+  radial-gradient(60% 60% at 50% 48%, rgba(255,255,255,.3), transparent 70%);}
+.close-panel{position:relative;z-index:2;border-radius:var(--r-xl);padding:72px 48px;text-align:center;overflow:hidden;
+  background:linear-gradient(160deg, rgba(255,255,255,.92), rgba(255,255,255,.74));
+  backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.96);
+  box-shadow:inset 0 2px 1px rgba(255,255,255,1),inset 0 0 0 1px rgba(255,255,255,.5),0 44px 84px -28px rgba(96,84,185,.4),0 16px 36px -16px rgba(150,120,210,.28)}
+.close-panel::after{opacity:.5}
+.close-panel .sheen{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;background:linear-gradient(125deg,rgba(176,232,255,.22),transparent 38%,transparent 62%,rgba(168,194,255,.22));mix-blend-mode:screen}
+.close-panel h2,.close-panel p,.close-panel .btn{position:relative;z-index:2}
+.close-panel h2{font-size:clamp(30px,4vw,54px);font-weight:500;letter-spacing:-0.038em;line-height:1.03;max-width:17ch;margin:0 auto}
+.close-panel p{margin:18px auto 0;max-width:400px}
+.close-panel .btn{margin-top:30px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);background:var(--bg-2)}
+.foot-top{padding:56px 0 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot-brand .brand{margin-bottom:14px}
+.foot-brand p{font-size:13.5px;color:var(--muted);max-width:260px;line-height:1.55}
+.foot-col h5{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--ink);margin-bottom:14px;letter-spacing:-0.01em}
+.foot-col a{display:block;font-size:13.5px;color:var(--muted);margin-bottom:10px;transition:color .15s}
+.foot-col a:hover{color:var(--ink)}
+.foot-bot{border-top:1px solid var(--line);padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.foot-bot .cpy,.foot-bot .loc{font-size:13px;color:var(--faint)}
+
+/* ---------- misc ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+section[id]{scroll-margin-top:84px}
+#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:9997;background:linear-gradient(90deg,#7aa0ff,#5ac8e6,#b0a0ff);box-shadow:0 0 10px rgba(120,160,255,.5);pointer-events:none}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
+p{text-wrap:pretty}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}html{scroll-behavior:auto}}
+
+@media(max-width:920px){
+  .process-inner{grid-template-columns:1fr;gap:40px}
+  .work-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}
+}
+@media(max-width:640px){
+  .wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+  .sec{padding:68px 0}
+  .hero-inner{padding-top:52px}
+  .hero h1{font-size:clamp(33px,9vw,46px);line-height:1.04}
+  .hero-actions{flex-direction:column}.hero-actions .btn{width:100%}
+  .hero-meta{gap:8px 20px}
+  .showcase{margin-top:42px;padding:0 18px}
+  .problem .cards{grid-template-columns:1fr}
+  .close{padding:6px 0 64px}.close-panel{padding:48px 24px}
+  .foot-top{grid-template-columns:1fr;gap:28px}
+  .frame .bar .url{display:none}
+}
+@media(hover:none){.wcard:hover,.frame:hover,.problem .card:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M8 19V6h9M8 12.5h6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Frontage</a>
+    <nav class="nav-links"><a href="#work">Work</a><a href="#process">Process</a><a href="#problem">Why it matters</a></nav>
+    <a href="review.html" class="btn btn-primary btn-sm">Get a free review</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wash"></div>
+  <div class="wrap hero-inner">
+    <span class="tag irim"><span class="dot"></span>Now booking local businesses · Live in days</span>
+    <h1><span>Your business is impressive.</span><span class="dim">Your website should be too.</span></h1>
+    <p class="lead">We design and build modern websites for local businesses — done for you, live in days, and yours to keep.</p>
+    <div class="hero-actions">
+      <a href="review.html" class="btn btn-primary">Get a free website review <svg class="arr" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#work" class="btn btn-glass">See our work</a>
+    </div>
+    <div class="hero-meta">
+      <span class="mi"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Done in days, not months</span>
+      <span class="mi"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>You own everything</span>
+      <span class="mi"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No contracts</span>
+    </div>
+  </div>
+  <div class="showcase reveal">
+    <a class="frame irim" href="work/harbour-goods.html" aria-label="View the Harbour Goods website">
+      <div class="bar"><i></i><i></i><i></i><span class="url">harbourgoods.co</span></div>
+      <img class="shot" src="assets/work/harbour-goods.png" alt="Harbour Goods website built by Frontage" loading="eager" />
+    </a>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="sec work divide" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Recent work</span>
+      <h2 style="margin-top:14px">Real sites, live in days.</h2>
+      <p class="lead">A few recent builds. Every one is fast, mobile-first, and owned outright by the business.</p>
+    </div>
+    <div class="work-grid">
+      <a class="wcard irim reveal" href="work/bloom-dental.html">
+        <div class="tbar"><i></i><i></i><i></i></div>
+        <div class="thumb"><img src="assets/work/bloom-dental.png" alt="Bloom Dental website" loading="lazy" /></div>
+        <div class="meta"><b>Bloom Dental</b><span>Clinic</span></div>
+      </a>
+      <a class="wcard irim reveal" href="work/sienna-studio.html">
+        <div class="tbar"><i></i><i></i><i></i></div>
+        <div class="thumb"><img src="assets/work/sienna-studio.png" alt="Sienna Studio website" loading="lazy" /></div>
+        <div class="meta"><b>Sienna Studio</b><span>Salon</span></div>
+      </a>
+      <a class="wcard irim reveal" href="work/harbour-goods.html">
+        <div class="tbar"><i></i><i></i><i></i></div>
+        <div class="thumb"><img src="assets/work/harbour-goods.png" alt="Harbour Goods website" loading="lazy" /></div>
+        <div class="meta"><b>Harbour Goods</b><span>Retail</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="sec problem divide" id="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>A great business loses customers to a poor website.</h2>
+      <p class="lead">Most local sites fail at three simple things — and each one quietly sends customers to a competitor.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="crow"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><span class="num">01</span></div>
+        <h3>Customers can't find you.</h3>
+        <p>You don't show up where people search. The ones looking for exactly what you offer never make it to your door.</p>
+      </div>
+      <div class="card reveal">
+        <div class="crow"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5v3a2 2 0 01-2 2A14 14 0 015 6a2 2 0 012-2" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div><span class="num">02</span></div>
+        <h3>Customers can't reach you.</h3>
+        <p>Hours are wrong, the phone number is buried, the form is broken. Reaching you takes more effort than it should.</p>
+      </div>
+      <div class="card reveal">
+        <div class="crow"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5c0 4-3 6.5-7 8-4-1.5-7-4-7-8V7z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="num">03</span></div>
+        <h3>Customers don't trust you.</h3>
+        <p>An outdated site makes a strong business look uncertain. People decide in seconds — and a dated page costs you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec why divide" id="process">
+  <div class="wrap process-inner">
+    <div class="process-copy reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 style="margin-top:14px">Built for owners who'd rather run their business.</h2>
+      <p class="lead">You shouldn't need a marketing department to look professional online. Three steps, and the result is yours to keep.</p>
+      <a href="review.html" class="btn btn-primary">Get a free website review <svg class="arr" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><span class="sn">1</span><div><b>We review &amp; plan</b><p>You send a link. We send back honest, specific notes and a clear plan — within one business day. No jargon, no pressure.</p></div></div>
+      <div class="step"><span class="sn">2</span><div><b>We design &amp; build</b><p>We write, design, and build the whole site to the standard you'd expect from a top software company. You don't touch a thing.</p></div></div>
+      <div class="step"><span class="sn">3</span><div><b>You go live — and own it</b><p>Most sites go live in days. The domain, the site, and the content are all yours. No lock-in, no contracts, ever.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="sec divide">
+  <div class="wrap">
+    <div class="quote reveal">
+      <blockquote>“We looked like a hobby. Now we look like the best shop on the street — and it was live in under a week.”</blockquote>
+      <div class="by"><span class="av">EM</span><span class="who"><b>Ella Moreno</b><span>Owner, Harbour Goods</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="close divide" id="contact">
+  <div class="wash"></div>
+  <div class="wrap">
+    <div class="close-panel irim reveal">
+      <div class="sheen"></div>
+      <h2>Let's make your business look the part.</h2>
+      <p class="lead">One short call. We design it, build it, and handle the rest — you own the result.</p>
+      <a href="review.html" class="btn btn-primary">Get a free website review <svg class="arr" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top"><span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M8 19V6h9M8 12.5h6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Frontage</a>
+        <p>Modern websites for local businesses. Done for you, live in days, and yours to keep.</p>
+      </div>
+      <div class="foot-col"><h5>Company</h5><a href="#work">Work</a><a href="#process">Process</a><a href="#problem">Why it matters</a><a href="#">Privacy</a></div>
+      <div class="foot-col"><h5>Get in touch</h5><a href="mailto:hello@frontage.co">hello@frontage.co</a><a href="review.html">Free website review</a></div>
+    </div>
+    <div class="foot-bot"><span class="cpy">© 2026 Frontage</span><span class="loc">Made for local businesses</span></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.querySelector('header.nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const prog=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
+</script>
+</body>
+</html>
