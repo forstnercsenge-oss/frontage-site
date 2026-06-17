@@ -167,6 +167,14 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(246,247,248,
 .cards{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 /* ============ SELECTED WORK ============ */
 .kicker{display:inline-block;font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+/* ============ HERO SHOWCASE (one big recent build) ============ */
+.showcase{position:relative;z-index:1;padding:8px 0 4px;text-align:center}
+.showcase-frame{position:relative;max-width:1120px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 50px 92px -42px rgba(24,42,100,.4),0 18px 40px -20px rgba(24,42,100,.2)}
+.showcase-frame .bar{height:38px;display:flex;align-items:center;gap:8px;padding:0 16px;background:#fff;border-bottom:1px solid var(--line)}
+.showcase-frame .bar i{width:11px;height:11px;border-radius:50%;background:var(--line-2)}
+.showcase-frame img{width:100%;display:block}
+.showcase-cap{margin:22px auto 0;font-size:15px;color:var(--muted);text-wrap:balance}
+.showcase-cap b{color:var(--ink);font-weight:600}
 .work-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .work-item{display:flex;flex-direction:column;border-radius:var(--r-card);overflow:hidden;padding:0;transition:transform .26s var(--ease),box-shadow .26s var(--ease)}
 .work-item:hover{transform:translateY(-6px);box-shadow:0 44px 80px -32px rgba(24,42,100,.34),0 14px 30px -16px rgba(24,42,100,.2)}
@@ -322,6 +330,9 @@ section[id]{scroll-margin-top:88px}
   .hero-panels,.cards{align-items:start}             /* kill equal-height stretch when stacked */
   .cards{gap:16px}
   .work-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .showcase{padding-top:4px}
+  .showcase-frame{border-radius:14px}
+  .showcase-cap{font-size:14px;margin-top:16px;padding:0 6px}
   .work-item figcaption{flex-direction:column;align-items:flex-start;gap:3px;padding:12px 13px 14px}
   .work-item figcaption b{font-size:14px}
   .work-item figcaption span{font-size:12px}
@@ -371,6 +382,18 @@ section[id]{scroll-margin-top:88px}
       <div class="hpanel"><span class="check"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Done in days, not months</b><p>Most sites go live in days, with no endless rounds of revisions.</p></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ HERO SHOWCASE ============ -->
+<section class="showcase">
+  <div class="wrap">
+    <span class="kicker">A recent build</span>
+    <div class="showcase-frame">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <img src="vale.jpg" alt="VALE Aesthetics — a website built by Frontage" loading="lazy">
+    </div>
+    <p class="showcase-cap"><b>VALE Aesthetics</b> — a calm, premium clinic site, designed, built, and live in days.</p>
   </div>
 </section>
 
