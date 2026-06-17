@@ -265,23 +265,43 @@ section[id]{scroll-margin-top:88px}
   .why-copy{text-align:center}
   .why-copy p{margin-left:auto;margin-right:auto}
 }
+/* ============ MOBILE (≤620px) — composed for small screens, not squeezed ============ */
 @media(max-width:620px){
-  .wrap{padding:0 22px}
-  .hero-inner{padding:56px 0 70px}
-  .hero h1{font-size:clamp(28px,8vw,38px);letter-spacing:-0.03em;line-height:1.02}
-  .hero .lead{font-size:16px;margin-top:20px}
-  .hero-actions{flex-direction:column;margin-top:30px}
+  /* Notch-safe gutters: 22px normally, clears the inset in landscape on notched phones */
+  .wrap{padding-left:max(22px,env(safe-area-inset-left));padding-right:max(22px,env(safe-area-inset-right))}
+
+  /* HERO — balanced multi-line headline + looser leading so wrapped lines breathe */
+  .hero-inner{padding:56px 0 68px}
+  .hero h1{font-size:clamp(25px,7vw,34px);letter-spacing:-0.025em;line-height:1.1}
+  .hero h1 .ln{text-wrap:balance}                 /* even wrap per sentence — kills orphans */
+  .hero .lead{font-size:16px;line-height:1.55;margin-top:18px}
+  .hero-actions{flex-direction:column;gap:12px;margin-top:30px}
   .hero-actions .btn{width:100%}
-  .hero-panels{grid-template-columns:1fr;margin-top:40px}
+  .hero-panels{grid-template-columns:1fr;gap:14px;margin-top:38px}
+
+  /* VERTICAL RHYTHM — consistent section padding top→bottom */
   .sec,.why{padding:72px 0}
-  .sec-head{margin-bottom:40px}
-  .sec-head h2{font-size:clamp(26px,7.2vw,36px)}
-  .why-copy h2{font-size:clamp(26px,7.2vw,36px)}
-  .why-inner{gap:36px}
+  .close{padding:6px 0 76px}                       /* was inheriting desktop 130px bottom — balloon fix */
+  .sec-head{margin-bottom:36px}
+  .sec-head h2,.why-copy h2{font-size:clamp(26px,7.2vw,34px);line-height:1.1}
+  .why-inner{gap:34px}
+  .close-panel{padding:48px 24px}
+  .close-panel h2{font-size:clamp(26px,7.4vw,36px);line-height:1.1}
+
+  /* PROBLEM CARDS — snug to content, even gap */
+  .cards{gap:16px}
   .card{min-height:0;padding:26px}
-  .close-panel{padding:52px 24px}
-  .close-panel h2{font-size:clamp(27px,7.4vw,38px)}
-  .foot-inner{flex-direction:column;text-align:center;gap:18px}
+
+  /* FOOTER — wrap links, real tap area, safe-area bottom */
+  .foot-inner{flex-direction:column;text-align:center;gap:16px;padding-bottom:max(40px,env(safe-area-inset-bottom))}
+  .foot-nav{flex-wrap:wrap;justify-content:center;gap:6px 22px}
+  .foot-nav a{padding:8px 4px}                     /* ≈40px tap height, generous spacing */
+}
+
+/* Touch devices: never leave a hover-lift state stuck after a tap */
+@media(hover:none){
+  .hpanel:hover,.problem .card:hover,.close-panel:hover,
+  .btn-primary:hover,.btn-glass:hover{transform:none}
 }
 </style>
 </head>

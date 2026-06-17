@@ -86,7 +86,10 @@ footer{position:relative;z-index:2;text-align:center;padding:20px;font-size:12.5
 
 @media(max-width:560px){
   .card{padding:30px 22px}
-  main{padding:28px 18px 44px}
+  main{padding:28px max(18px,env(safe-area-inset-left)) 44px max(18px,env(safe-area-inset-right))}
+  .top-inner{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+  .btn{width:100%}            /* full-width submit — solid tap target on phones */
+  .card h1{font-size:clamp(24px,6.4vw,30px);line-height:1.1}
 }
 </style>
 </head>
