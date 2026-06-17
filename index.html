@@ -297,8 +297,11 @@ section[id]{scroll-margin-top:88px}
   .hpanel,.problem .card{min-height:0;padding:22px;height:auto} /* height driven by content */
   .problem .card{justify-content:flex-start}          /* top-align the flex column */
   .problem .card .crow{margin-bottom:0}               /* was margin-bottom:auto (the top-pin) */
-  .hpanel b{margin:13px 0 7px}                         /* even icon→heading gap */
-  .card h3{margin:13px 0 8px}                          /* was 24px top — match the body gap */
+  /* Tight, even, top-aligned cluster. line-height:1.5 leaks ~5px of line-box leading
+     above the heading on mobile, which made the icon→heading gap read airy/oversized
+     even though the box-margin was small. Pin line-height so the VISIBLE gaps match. */
+  .hpanel b{margin:9px 0 5px;line-height:1.2}          /* visible icon→head ≈ head→body ≈ 14px */
+  .card h3{margin:9px 0 5px;line-height:1.2}           /* same treatment for problem cards */
 
   /* FOOTER — wrap links, real tap area, safe-area bottom */
   .foot-inner{flex-direction:column;text-align:center;gap:16px;padding-bottom:max(40px,env(safe-area-inset-bottom))}
