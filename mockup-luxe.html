@@ -9,143 +9,144 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23292420'/%3E%3Cpath d='M11 22V10h10M11 16h7' stroke='%23f1ece4' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#f1ece4; --paper:#f8f4ed; --card:#efe9e0;
-  --ink:#28231e; --soft:#5b544b; --muted:#928a7d; --faint:#aaa294;
-  --line:rgba(40,35,30,.14); --line-2:rgba(40,35,30,.22);
+  --bg:#f1ece4; --paper:#f7f2ea; --card:#fffdfa; --card-2:#efe9e0;
+  --ink:#26211c; --soft:#544c43; --muted:#8d8478; --faint:#a99f90;
+  --line:rgba(38,33,28,.12); --line-2:rgba(38,33,28,.2);
   --accent:#9c8466; --accent-deep:#7c674c;
-  --maxw:1240px;
+  --maxw:1200px;
   --ease:cubic-bezier(.22,.61,.36,1);
-  --f:'Jost',-apple-system,sans-serif; --fd:'Cormorant Garamond',Georgia,serif;
+  --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --sh-card:0 2px 4px rgba(38,33,28,.04),0 30px 56px -34px rgba(38,33,28,.34);
+  --sh-card-h:0 4px 8px rgba(38,33,28,.05),0 44px 72px -36px rgba(38,33,28,.44);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body{font-family:var(--f);background:var(--bg);color:var(--ink);line-height:1.7;font-size:16px;font-weight:300;letter-spacing:.005em;overflow-x:hidden}
+body{font-family:var(--f);background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;font-weight:400;letter-spacing:-0.006em;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 ::selection{background:var(--ink);color:var(--bg)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
 h1,h2,h3{font-family:var(--fd);font-weight:500;line-height:1.04;letter-spacing:-0.01em;color:var(--ink)}
-.lead{font-size:clamp(15px,1.2vw,17px);color:var(--soft);line-height:1.7;font-weight:300}
-.label{font-family:var(--f);font-size:11.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-deep)}
+.lead{font-size:clamp(15px,1.2vw,17px);color:var(--soft);line-height:1.65;font-weight:400}
+.label{font-family:var(--f);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep)}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 30px;border-radius:100px;font-family:var(--f);font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border:1px solid transparent;transition:all .25s var(--ease)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;border-radius:100px;font-family:var(--f);font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:1px solid transparent;transition:all .25s var(--ease)}
 .btn-dark{background:var(--ink);color:var(--bg)}
-.btn-dark:hover{background:var(--accent-deep)}
+.btn-dark:hover{background:var(--accent-deep);transform:translateY(-1px)}
 .btn-line{border-color:var(--line-2);color:var(--ink)}
-.btn-line:hover{border-color:var(--ink);background:rgba(40,35,30,.03)}
-/* circular arrow link */
-.cta-circle{display:inline-flex;align-items:center;gap:14px;font-family:var(--f);font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-.cta-circle .ring{width:54px;height:54px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;transition:all .25s var(--ease)}
+.btn-line:hover{border-color:var(--ink);background:rgba(38,33,28,.03)}
+.cta-circle{display:inline-flex;align-items:center;gap:14px;font-family:var(--f);font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.cta-circle .ring{width:52px;height:52px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;transition:all .25s var(--ease)}
 .cta-circle:hover .ring{background:var(--ink);border-color:var(--ink)}
 .cta-circle:hover .ring svg{color:var(--bg);transform:translate(2px,-2px)}
-.cta-circle .ring svg{width:17px;height:17px;color:var(--ink);transition:all .25s var(--ease)}
+.cta-circle .ring svg{width:16px;height:16px;color:var(--ink);transition:all .25s var(--ease)}
 
 /* nav */
 header.nav{position:sticky;top:0;z-index:100;background:rgba(241,236,228,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:.3s}
 header.nav.scrolled{border-bottom-color:var(--line);background:rgba(241,236,228,.92)}
-.nav-inner{height:84px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
-.nav-left{display:flex;gap:36px}
-.nav-left a{font-size:12.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);transition:color .15s}
+.nav-inner{height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.nav-left{display:flex;gap:34px}
+.nav-left a{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);transition:color .15s}
 .nav-left a:hover{color:var(--ink)}
-.brand{font-family:var(--fd);font-weight:600;font-size:26px;letter-spacing:.04em;text-align:center}
+.brand{font-family:var(--fd);font-weight:600;font-size:27px;letter-spacing:.04em;text-align:center}
 .nav-right{display:flex;justify-content:flex-end}
-.nav-right .btn{height:46px;padding:0 24px}
+.nav-right .btn{height:44px;padding:0 22px}
 @media(max-width:820px){.nav-left{display:none}.nav-inner{grid-template-columns:1fr auto}.brand{text-align:left}}
 
-/* hero */
-.hero{position:relative;padding:88px 0 0;text-align:center;overflow:hidden}
-.hero .label{display:inline-block;margin-bottom:30px}
-.hero h1{font-size:clamp(48px,9vw,128px);font-weight:500;line-height:.96;letter-spacing:-0.015em}
+/* hero (kept — the typography you liked) */
+.hero{position:relative;padding:90px 0 0;text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;top:-10%;transform:translateX(-50%);width:1100px;height:600px;background:radial-gradient(50% 50% at 50% 50%,rgba(156,132,102,.1),transparent 70%);pointer-events:none}
+.hero .label{display:inline-block;margin-bottom:30px;position:relative}
+.hero h1{font-size:clamp(48px,9vw,128px);font-weight:500;line-height:.96;letter-spacing:-0.015em;position:relative}
 .hero h1 .it{font-style:italic;font-weight:400}
 .hero h1 .dim{color:var(--muted)}
-.hero .sub{max-width:500px;margin:34px auto 0;font-size:clamp(15px,1.3vw,18px);color:var(--soft);font-weight:300}
+.hero .sub{max-width:500px;margin:34px auto 0;font-size:clamp(15px,1.3vw,18px);color:var(--soft);font-weight:400}
 .hero-actions{display:flex;gap:24px;justify-content:center;align-items:center;margin-top:42px;flex-wrap:wrap}
 .hero-meta{display:flex;gap:18px;justify-content:center;margin-top:46px;flex-wrap:wrap;align-items:center}
-.hero-meta span{font-family:var(--f);font-size:11.5px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.hero-meta span{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .hero-meta i{width:4px;height:4px;border-radius:50%;background:var(--line-2)}
 
-/* showcase frame */
 .showcase{position:relative;z-index:2;max-width:1080px;margin:74px auto 0;padding:0 40px}
-.frame{display:block;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 50px 100px -40px rgba(40,35,30,.4);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-.frame:hover{transform:translateY(-5px);box-shadow:0 70px 120px -50px rgba(40,35,30,.46)}
+.frame{display:block;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 50px 100px -40px rgba(38,33,28,.42);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.frame:hover{transform:translateY(-5px);box-shadow:0 70px 120px -50px rgba(38,33,28,.48)}
 .frame .bar{height:42px;display:flex;align-items:center;gap:8px;padding:0 18px;background:#efe9e0;border-bottom:1px solid var(--line)}
 .frame .bar i{width:9px;height:9px;border-radius:50%;background:#cabfae;display:block}
-.frame .bar .url{margin-left:14px;font-size:12px;letter-spacing:.08em;color:var(--muted);font-family:var(--f)}
+.frame .bar .url{margin-left:14px;font-size:12px;letter-spacing:.06em;color:var(--muted)}
 .frame img{display:block;width:100%}
 
 /* section scaffold */
-.sec{position:relative;padding:130px 0}
-.sec-head{max-width:760px;margin:0 auto 72px;text-align:center}
+.sec{position:relative;padding:128px 0}
+.sec-head{max-width:760px;margin:0 auto 68px;text-align:center}
 .sec-head .label{display:inline-block;margin-bottom:22px}
-.sec-head h2{font-size:clamp(34px,5.4vw,72px);font-weight:500;letter-spacing:-0.012em;line-height:1.02}
+.sec-head h2{font-size:clamp(34px,5.2vw,70px);font-weight:500;letter-spacing:-0.012em;line-height:1.02}
 .sec-head h2 .it{font-style:italic;font-weight:400}
-.sec-head p{margin:24px auto 0;max-width:540px}
+.sec-head p{margin:24px auto 0;max-width:520px}
 .divide{border-top:1px solid var(--line)}
 
 /* work — editorial asymmetric */
 .work{background:var(--paper)}
-.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:30px 30px}
-.wcard{display:block;grid-column:span 4;group}
-.wcard.lg{grid-column:span 6}
-.wcard.lg.first{margin-top:0}
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:30px}
+.wcard{display:block;grid-column:span 6}
 .wcard.offset{margin-top:64px}
-.wcard .ph{overflow:hidden;background:var(--card);position:relative}
-.wcard .ph img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top center;transition:transform .8s var(--ease);filter:saturate(.96)}
-.wcard.lg .ph img{aspect-ratio:16/11}
+.wcard .ph{overflow:hidden;background:var(--card-2);border-radius:5px;position:relative;box-shadow:var(--sh-card)}
+.wcard .ph img{width:100%;aspect-ratio:16/11;object-fit:cover;object-position:top center;transition:transform .8s var(--ease)}
 .wcard:hover .ph img{transform:scale(1.04)}
-.wcard .ph .view{position:absolute;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:rgba(248,244,237,.9);backdrop-filter:blur(6px);display:grid;place-items:center;opacity:0;transform:translateY(8px);transition:.3s var(--ease)}
+.wcard .ph .view{position:absolute;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:rgba(247,242,234,.92);backdrop-filter:blur(6px);display:grid;place-items:center;opacity:0;transform:translateY(8px);transition:.3s var(--ease)}
 .wcard:hover .ph .view{opacity:1;transform:none}
 .wcard .ph .view svg{width:17px;height:17px;color:var(--ink)}
-.wcard .meta{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:20px 2px 0;border-bottom:1px solid transparent}
-.wcard .meta b{font-family:var(--fd);font-weight:500;font-size:23px;letter-spacing:0}
-.wcard .meta span{font-size:11px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-@media(max-width:860px){.wcard,.wcard.lg{grid-column:span 12}.wcard.offset{margin-top:0}}
+.wcard .meta{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:20px 4px 0}
+.wcard .meta b{font-family:var(--fd);font-weight:500;font-size:24px}
+.wcard .meta span{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:860px){.wcard{grid-column:span 12}.wcard.offset{margin-top:0}}
 
-/* problem — minimalist numbered, hairline dividers */
-.problem .p-grid{display:grid;grid-template-columns:repeat(3,1fr)}
-.problem .p{padding:0 40px;border-left:1px solid var(--line)}
-.problem .p:first-child{padding-left:0;border-left:none}
-.problem .p:last-child{padding-right:0}
-.problem .p .n{font-family:var(--fd);font-size:46px;font-weight:400;font-style:italic;color:var(--accent);line-height:1;display:block;margin-bottom:26px}
-.problem .p h3{font-size:27px;font-weight:500;letter-spacing:-0.01em;margin-bottom:14px}
-.problem .p p{font-size:15px;color:var(--soft);font-weight:300;line-height:1.7}
-@media(max-width:780px){.problem .p-grid{grid-template-columns:1fr;gap:48px}.problem .p{padding:0;border-left:none;border-top:1px solid var(--line);padding-top:40px}.problem .p:first-child{border-top:none;padding-top:0}}
+/* problem — elevated white cards */
+.problem{background:var(--bg)}
+.problem .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.problem .card{background:var(--card);border:1px solid rgba(38,33,28,.07);border-radius:5px;padding:40px 34px;display:flex;flex-direction:column;min-height:264px;box-shadow:var(--sh-card);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.problem .card:hover{transform:translateY(-6px);box-shadow:var(--sh-card-h)}
+.problem .card .n{font-family:var(--fd);font-style:italic;font-size:50px;font-weight:400;color:var(--accent);line-height:1;margin-bottom:auto}
+.problem .card h3{font-family:var(--fd);font-size:27px;font-weight:500;letter-spacing:-0.01em;margin:32px 0 12px}
+.problem .card p{font-size:14.5px;color:var(--soft);line-height:1.6}
+@media(max-width:780px){.problem .cards{grid-template-columns:1fr}}
 
-/* process */
-.process{background:var(--paper)}
-.process-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
-.process-copy h2{font-size:clamp(32px,4.2vw,56px);font-weight:500;letter-spacing:-0.012em;line-height:1.04}
-.process-copy h2 .it{font-style:italic;font-weight:400}
-.process-copy p{margin:24px 0 0;max-width:360px}
-.process-copy .label{display:block;margin-bottom:22px}
-.process-copy .cta-circle{margin-top:40px}
-.steps{display:flex;flex-direction:column}
-.step{display:grid;grid-template-columns:auto 1fr;gap:28px;padding:34px 0;border-top:1px solid var(--line);align-items:baseline}
-.step:first-child{border-top:none;padding-top:0}
-.step:last-child{padding-bottom:0}
-.step .sn{font-family:var(--fd);font-size:34px;font-style:italic;font-weight:400;color:var(--accent);line-height:1}
-.step b{font-family:var(--fd);font-size:24px;font-weight:500;display:block;margin-bottom:8px;letter-spacing:0}
-.step p{font-size:15px;color:var(--soft);font-weight:300;line-height:1.65;max-width:440px}
-@media(max-width:820px){.process-inner{grid-template-columns:1fr;gap:48px}}
+/* how it works — white cards */
+.how{background:var(--paper)}
+.how .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.how .scard{background:var(--card);border:1px solid rgba(38,33,28,.07);border-radius:5px;padding:40px 34px;box-shadow:var(--sh-card);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.how .scard:hover{transform:translateY(-6px);box-shadow:var(--sh-card-h)}
+.how .scard .sn{font-family:var(--fd);font-style:italic;font-size:42px;font-weight:400;color:var(--accent);line-height:1}
+.how .scard b{font-family:var(--fd);font-size:24px;font-weight:500;display:block;margin:20px 0 10px;letter-spacing:-0.01em}
+.how .scard p{font-size:14.5px;color:var(--soft);line-height:1.6}
+@media(max-width:780px){.how .steps3{grid-template-columns:1fr}}
 
-/* testimonial */
-.quote{text-align:center;max-width:920px;margin:0 auto}
-.quote .mark{font-family:var(--fd);font-size:90px;font-style:italic;color:var(--accent);line-height:.6;height:46px;display:block}
-.quote blockquote{font-family:var(--fd);font-weight:500;font-size:clamp(28px,4.2vw,52px);line-height:1.18;letter-spacing:-0.01em}
-.quote blockquote .it{font-style:italic;font-weight:400}
-.quote .by{margin-top:40px;font-family:var(--f);font-size:11.5px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.quote .by b{color:var(--ink);font-weight:500}
+/* why us — live-site layout, luxe + high contrast */
+.why{background:var(--bg)}
+.why-in{display:grid;grid-template-columns:.92fr 1.08fr;gap:72px;align-items:center}
+.why-copy .label{display:block;margin-bottom:22px}
+.why-copy h2{font-size:clamp(30px,4vw,52px);font-weight:500;letter-spacing:-0.012em;line-height:1.04}
+.why-copy h2 .it{font-style:italic;font-weight:400}
+.why-copy p{margin:24px 0 0;max-width:380px}
+.why-copy .cta-circle{margin-top:36px}
+.feat{background:var(--card);border:1px solid rgba(38,33,28,.07);border-radius:6px;padding:8px 40px;box-shadow:var(--sh-card)}
+.feat .row{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:26px 0;border-top:1px solid var(--line);align-items:start}
+.feat .row:first-child{border-top:none}
+.feat .ck{width:30px;height:30px;border-radius:50%;background:var(--ink);display:grid;place-items:center;margin-top:3px}
+.feat .ck svg{width:15px;height:15px;color:var(--bg)}
+.feat b{font-family:var(--fd);font-size:21px;font-weight:500;display:block;margin-bottom:5px;letter-spacing:-0.01em}
+.feat p{font-size:14.5px;color:var(--soft);line-height:1.6;max-width:460px}
+@media(max-width:820px){.why-in{grid-template-columns:1fr;gap:44px}.why-copy{text-align:center}.why-copy p{margin-left:auto;margin-right:auto}.feat{padding:8px 28px}}
 
 /* closing */
 .close{background:var(--ink);color:var(--bg);text-align:center}
 .close .label{color:var(--accent)}
 .close h2{color:var(--bg);font-size:clamp(36px,6vw,88px);font-weight:500;letter-spacing:-0.015em;line-height:1.0;max-width:15ch;margin:24px auto 0}
 .close h2 .it{font-style:italic;font-weight:400}
-.close p{margin:26px auto 0;max-width:420px;color:rgba(241,236,228,.66);font-weight:300}
+.close p{margin:26px auto 0;max-width:420px;color:rgba(241,236,228,.66)}
 .close .btn{margin-top:44px;background:var(--bg);color:var(--ink);border-color:var(--bg)}
 .close .btn:hover{background:transparent;color:var(--bg)}
 
@@ -153,11 +154,11 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(241,236,228,
 footer{background:var(--ink);color:rgba(241,236,228,.6);padding:0 0 40px}
 .foot-top{padding:80px 0 50px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;border-top:1px solid rgba(241,236,228,.14)}
 .foot-brand .brand{color:var(--bg);text-align:left;margin-bottom:18px}
-.foot-brand p{font-size:14px;max-width:280px;font-weight:300;color:rgba(241,236,228,.55)}
-.foot-col h5{font-family:var(--f);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--bg);margin-bottom:20px}
-.foot-col a{display:block;font-size:14px;margin-bottom:12px;color:rgba(241,236,228,.6);font-weight:300;transition:color .15s}
+.foot-brand p{font-size:14px;max-width:280px;color:rgba(241,236,228,.55)}
+.foot-col h5{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--bg);margin-bottom:20px}
+.foot-col a{display:block;font-size:14px;margin-bottom:12px;color:rgba(241,236,228,.6);transition:color .15s}
 .foot-col a:hover{color:var(--bg)}
-.foot-bot{padding-top:30px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,236,228,.4);flex-wrap:wrap;gap:12px}
+.foot-bot{padding-top:30px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(241,236,228,.4);flex-wrap:wrap;gap:12px}
 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -170,14 +171,14 @@ section[id]{scroll-margin-top:90px}
   .foot-top{grid-template-columns:1fr;gap:32px}
   .frame .bar .url{display:none}
 }
-@media(hover:none){.frame:hover,.wcard:hover .ph img{transform:none}}
+@media(hover:none){.frame:hover,.wcard:hover .ph img,.problem .card:hover,.how .scard:hover{transform:none}}
 </style>
 </head>
 <body>
 
 <header class="nav" id="top">
   <div class="wrap nav-inner">
-    <nav class="nav-left"><a href="#work">Work</a><a href="#process">Process</a><a href="#problem">Why it matters</a></nav>
+    <nav class="nav-left"><a href="#work">Work</a><a href="#how">Process</a><a href="#why">Why us</a></nav>
     <a class="brand" href="#top">FRONTAGE</a>
     <div class="nav-right"><a href="review.html" class="btn btn-dark">Free Review</a></div>
   </div>
@@ -212,15 +213,15 @@ section[id]{scroll-margin-top:90px}
       <p class="lead">A few recent builds. Every one is fast, mobile-first, and owned outright by the business.</p>
     </div>
     <div class="work-grid">
-      <a class="wcard lg first reveal" href="work/harbour-goods.html">
+      <a class="wcard reveal" href="work/harbour-goods.html">
         <div class="ph"><img src="assets/work/harbour-goods.png" alt="Harbour Goods website" loading="lazy" /><span class="view"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M5 3h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
         <div class="meta"><b>Harbour Goods</b><span>Retail</span></div>
       </a>
-      <a class="wcard lg offset reveal" href="work/bloom-dental.html">
+      <a class="wcard offset reveal" href="work/bloom-dental.html">
         <div class="ph"><img src="assets/work/bloom-dental.png" alt="Bloom Dental website" loading="lazy" /><span class="view"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M5 3h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
         <div class="meta"><b>Bloom Dental</b><span>Clinic</span></div>
       </a>
-      <a class="wcard lg reveal" href="work/sienna-studio.html" style="grid-column:4 / span 6;margin-top:-24px">
+      <a class="wcard reveal" href="work/sienna-studio.html" style="grid-column:4 / span 6;margin-top:-12px">
         <div class="ph"><img src="assets/work/sienna-studio.png" alt="Sienna Studio website" loading="lazy" /><span class="view"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M5 3h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
         <div class="meta"><b>Sienna Studio</b><span>Salon</span></div>
       </a>
@@ -235,38 +236,45 @@ section[id]{scroll-margin-top:90px}
       <h2>A great business loses customers <span class="it">to a poor website.</span></h2>
       <p class="lead">Most local sites fail at three simple things — and each one quietly sends customers to a competitor.</p>
     </div>
-    <div class="p-grid">
-      <div class="p reveal"><span class="n">01</span><h3>Customers can't find you.</h3><p>You don't show up where people search. The ones looking for exactly what you offer never make it to your door.</p></div>
-      <div class="p reveal"><span class="n">02</span><h3>Customers can't reach you.</h3><p>Hours are wrong, the phone number is buried, the form is broken. Reaching you takes more effort than it should.</p></div>
-      <div class="p reveal"><span class="n">03</span><h3>Customers don't trust you.</h3><p>An outdated site makes a strong business look uncertain. People decide in seconds — and a dated page costs you.</p></div>
+    <div class="cards">
+      <div class="card reveal"><span class="n">01</span><h3>Customers can't find you.</h3><p>You don't show up where people search. The ones looking for exactly what you offer never make it to your door.</p></div>
+      <div class="card reveal"><span class="n">02</span><h3>Customers can't reach you.</h3><p>Hours are wrong, the phone number is buried, the form is broken. Reaching you takes more effort than it should.</p></div>
+      <div class="card reveal"><span class="n">03</span><h3>Customers don't trust you.</h3><p>An outdated site makes a strong business look uncertain. People decide in seconds — and a dated page costs you.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="sec process divide" id="process">
-  <div class="wrap process-inner">
-    <div class="process-copy reveal">
+<!-- HOW IT WORKS -->
+<section class="sec how divide" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
       <span class="label">How it works</span>
+      <h2>Three steps, <span class="it">then it's yours.</span></h2>
+      <p class="lead">No marketing department required. You send a link — we handle the rest.</p>
+    </div>
+    <div class="steps3">
+      <div class="scard reveal"><span class="sn">01</span><b>We review &amp; plan</b><p>You send a link. We send back honest, specific notes and a clear plan — within one business day. No jargon, no pressure.</p></div>
+      <div class="scard reveal"><span class="sn">02</span><b>We design &amp; build</b><p>We write, design, and build the whole site to the standard you'd expect from a top software company. You don't touch a thing.</p></div>
+      <div class="scard reveal"><span class="sn">03</span><b>You go live — and own it</b><p>Most sites go live in days. The domain, the site, and the content are all yours. No lock-in, no contracts, ever.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US (live-site layout, luxe) -->
+<section class="sec why divide" id="why">
+  <div class="wrap why-in">
+    <div class="why-copy reveal">
+      <span class="label">Why Frontage</span>
       <h2>Built for owners who'd rather <span class="it">run their business.</span></h2>
-      <p class="lead">You shouldn't need a marketing department to look professional online. Three steps, and the result is yours to keep.</p>
+      <p class="lead">You shouldn't need a marketing department to look professional online. We make the whole thing effortless — and the result is yours to keep.</p>
       <a href="review.html" class="cta-circle"><span class="ring"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Get a Free Review</a>
     </div>
-    <div class="steps reveal">
-      <div class="step"><span class="sn">01</span><div><b>We review &amp; plan</b><p>You send a link. We send back honest, specific notes and a clear plan — within one business day. No jargon, no pressure.</p></div></div>
-      <div class="step"><span class="sn">02</span><div><b>We design &amp; build</b><p>We write, design, and build the whole site to the standard you'd expect from a top software company. You don't touch a thing.</p></div></div>
-      <div class="step"><span class="sn">03</span><div><b>You go live — and own it</b><p>Most sites go live in days. The domain, the site, and the content are all yours. No lock-in, no contracts, ever.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIAL -->
-<section class="sec divide">
-  <div class="wrap">
-    <div class="quote reveal">
-      <span class="mark">“</span>
-      <blockquote>We looked like a hobby. Now we look like <span class="it">the best shop on the street</span> — and it was live in under a week.</blockquote>
-      <div class="by"><b>Ella Moreno</b> — Owner, Harbour Goods</div>
+    <div class="feat reveal">
+      <div class="row"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Done-for-you</b><p>You don't touch a thing. We write, design, build, and publish the entire site.</p></div></div>
+      <div class="row"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Fast turnaround</b><p>Most sites go live in days. No three-month timelines, no endless revisions.</p></div></div>
+      <div class="row"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Professional design</b><p>The same standard of polish you'd expect from a top software company — applied to your business.</p></div></div>
+      <div class="row"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>You own everything</b><p>The domain, the site, the content — all yours. No lock-in, no hostage situations.</p></div></div>
+      <div class="row"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>No ongoing contracts</b><p>Pay once for the work. Stay because you want to, never because you're trapped.</p></div></div>
     </div>
   </div>
 </section>
@@ -291,7 +299,7 @@ section[id]{scroll-margin-top:90px}
         <div class="brand">FRONTAGE</div>
         <p>Modern websites for local businesses. Done for you, live in days, and yours to keep.</p>
       </div>
-      <div class="foot-col"><h5>Company</h5><a href="#work">Work</a><a href="#process">Process</a><a href="#problem">Why it matters</a><a href="#">Privacy</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="#work">Work</a><a href="#how">Process</a><a href="#why">Why us</a><a href="#">Privacy</a></div>
       <div class="foot-col"><h5>Get in touch</h5><a href="mailto:hello@frontage.co">hello@frontage.co</a><a href="review.html">Free website review</a></div>
     </div>
     <div class="foot-bot"><span>© 2026 Frontage</span><span>Made for local businesses</span></div>
