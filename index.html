@@ -167,12 +167,10 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(246,247,248,
 .cards{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 /* ============ SELECTED WORK ============ */
 .kicker{display:inline-block;font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
-.work-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.work-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .work-item{display:flex;flex-direction:column;border-radius:var(--r-card);overflow:hidden;padding:0;transition:transform .26s var(--ease),box-shadow .26s var(--ease)}
-.work-item:first-child{grid-column:1 / -1}
 .work-item:hover{transform:translateY(-6px);box-shadow:0 44px 80px -32px rgba(24,42,100,.34),0 14px 30px -16px rgba(24,42,100,.2)}
 .work-item .shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#e9e6e0}
-.work-item:first-child .shot{aspect-ratio:16/8}
 .work-item .bar{position:absolute;top:0;left:0;right:0;height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:3}
 .work-item .bar i{width:10px;height:10px;border-radius:50%;background:var(--line-2)}
 .work-item .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;z-index:2}
@@ -323,8 +321,10 @@ section[id]{scroll-margin-top:88px}
      gap between the icon and heading — neutralize it here, mobile only. */
   .hero-panels,.cards{align-items:start}             /* kill equal-height stretch when stacked */
   .cards{gap:16px}
-  .work-grid{grid-template-columns:1fr;gap:16px}
-  .work-item:first-child{grid-column:auto}
+  .work-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .work-item figcaption{flex-direction:column;align-items:flex-start;gap:3px;padding:12px 13px 14px}
+  .work-item figcaption b{font-size:14px}
+  .work-item figcaption span{font-size:12px}
   .hpanel,.problem .card{min-height:0;padding:22px;height:auto} /* height driven by content */
   .problem .card{justify-content:flex-start}          /* top-align the flex column */
   .problem .card .crow{margin-bottom:0}               /* was margin-bottom:auto (the top-pin) */
@@ -457,12 +457,12 @@ section[id]{scroll-margin-top:88px}
         <figcaption><b>VALE Aesthetics</b><span>Aesthetics clinic</span></figcaption>
       </figure>
       <figure class="work-item glass reveal">
-        <div class="shot" style="background:linear-gradient(135deg,#1a1c1e,#2a2d30)">
+        <div class="shot" style="background:linear-gradient(135deg,#0a100a,#15281a)">
           <div class="bar"><i></i><i></i><i></i></div>
-          <div class="ph" style="color:#e8e4dd">Atlas &amp; Beam<small>Precision &amp; trust</small></div>
-          <img src="atlas-beam.jpg" alt="Atlas &amp; Beam website built by Frontage" loading="lazy" onerror="this.remove()">
+          <div class="ph" style="color:#9be870">Sentinel Layer<small>Quiet protection</small></div>
+          <img src="sentinel-layer.jpg" alt="Sentinel Layer website built by Frontage" loading="lazy" onerror="this.remove()">
         </div>
-        <figcaption><b>Atlas &amp; Beam</b><span>Construction firm</span></figcaption>
+        <figcaption><b>Sentinel Layer</b><span>Cybersecurity</span></figcaption>
       </figure>
       <figure class="work-item glass reveal">
         <div class="shot" style="background:linear-gradient(135deg,#f3efe9,#ddd4c6)">
@@ -473,12 +473,12 @@ section[id]{scroll-margin-top:88px}
         <figcaption><b>Forma House</b><span>Pilates &amp; strength studio</span></figcaption>
       </figure>
       <figure class="work-item glass reveal">
-        <div class="shot" style="background:linear-gradient(135deg,#1c1b19,#2c2620)">
+        <div class="shot" style="background:linear-gradient(135deg,#1a1c1e,#2a2d30)">
           <div class="bar"><i></i><i></i><i></i></div>
-          <div class="ph" style="color:#f3efe9">HavenIQ<small>Quietly intelligent</small></div>
-          <img src="haveniq.jpg" alt="HavenIQ website built by Frontage" loading="lazy" onerror="this.remove()">
+          <div class="ph" style="color:#e8e4dd">Atlas &amp; Beam<small>Precision &amp; trust</small></div>
+          <img src="atlas-beam.jpg" alt="Atlas &amp; Beam website built by Frontage" loading="lazy" onerror="this.remove()">
         </div>
-        <figcaption><b>HavenIQ</b><span>Smart-home systems</span></figcaption>
+        <figcaption><b>Atlas &amp; Beam</b><span>Construction firm</span></figcaption>
       </figure>
       <figure class="work-item glass reveal">
         <div class="shot" style="background:linear-gradient(135deg,#f1ece4,#dccfbf)">
@@ -487,6 +487,14 @@ section[id]{scroll-margin-top:88px}
           <img src="luma-dental.jpg" alt="Luma Dental House website built by Frontage" loading="lazy" onerror="this.remove()">
         </div>
         <figcaption><b>Luma Dental House</b><span>Dental studio</span></figcaption>
+      </figure>
+      <figure class="work-item glass reveal">
+        <div class="shot" style="background:linear-gradient(135deg,#1c1b19,#2c2620)">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="ph" style="color:#f3efe9">HavenIQ<small>Quietly intelligent</small></div>
+          <img src="haveniq.jpg" alt="HavenIQ website built by Frontage" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption><b>HavenIQ</b><span>Smart-home systems</span></figcaption>
       </figure>
     </div>
   </div>
