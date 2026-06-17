@@ -288,9 +288,17 @@ section[id]{scroll-margin-top:88px}
   .close-panel{padding:48px 24px}
   .close-panel h2{font-size:clamp(26px,7.4vw,36px);line-height:1.1}
 
-  /* PROBLEM CARDS — snug to content, even gap */
+  /* CARDS (hero value panels + problem cards) — tight, TOP-ALIGNED icon→heading→body.
+     Desktop uses equal-height grid rows (align-items:stretch) + .crow margin-bottom:auto
+     to pin the icon top / text bottom. Once cards stack full-width that opens a dead
+     gap between the icon and heading — neutralize it here, mobile only. */
+  .hero-panels,.cards{align-items:start}             /* kill equal-height stretch when stacked */
   .cards{gap:16px}
-  .card{min-height:0;padding:26px}
+  .hpanel,.problem .card{min-height:0;padding:22px;height:auto} /* height driven by content */
+  .problem .card{justify-content:flex-start}          /* top-align the flex column */
+  .problem .card .crow{margin-bottom:0}               /* was margin-bottom:auto (the top-pin) */
+  .hpanel b{margin:13px 0 7px}                         /* even icon→heading gap */
+  .card h3{margin:13px 0 8px}                          /* was 24px top — match the body gap */
 
   /* FOOTER — wrap links, real tap area, safe-area bottom */
   .foot-inner{flex-direction:column;text-align:center;gap:16px;padding-bottom:max(40px,env(safe-area-inset-bottom))}
