@@ -165,6 +165,23 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(246,247,248,
 .problem{background:#ffffff;border-top:1px solid var(--line)}
 .problem .wash{display:none}
 .cards{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+/* ============ SELECTED WORK ============ */
+.kicker{display:inline-block;font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+.work-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.work-item{display:flex;flex-direction:column;border-radius:var(--r-card);overflow:hidden;padding:0;transition:transform .26s var(--ease),box-shadow .26s var(--ease)}
+.work-item:first-child{grid-column:1 / -1}
+.work-item:hover{transform:translateY(-6px);box-shadow:0 44px 80px -32px rgba(24,42,100,.34),0 14px 30px -16px rgba(24,42,100,.2)}
+.work-item .shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#e9e6e0}
+.work-item:first-child .shot{aspect-ratio:16/8}
+.work-item .bar{position:absolute;top:0;left:0;right:0;height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:3}
+.work-item .bar i{width:10px;height:10px;border-radius:50%;background:var(--line-2)}
+.work-item .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;z-index:2}
+.work-item figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:18px 22px 22px}
+.work-item figcaption b{font-family:var(--fd);font-size:18px;font-weight:700;letter-spacing:-0.02em}
+.work-item figcaption span{font-size:14px;color:var(--muted)}
+/* placeholder fill shown until the real screenshot is uploaded */
+.ph{position:absolute;inset:0;z-index:1;display:grid;place-items:center;font-family:var(--fd);font-weight:600;letter-spacing:.02em;text-align:center}
+.ph small{display:block;font-family:var(--f);font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-top:8px}
 .card{border-radius:var(--r-card);padding:30px;min-height:272px;display:flex;flex-direction:column;transition:transform .24s var(--ease),box-shadow .24s var(--ease)}
 .problem .card{
   background:
@@ -306,6 +323,8 @@ section[id]{scroll-margin-top:88px}
      gap between the icon and heading — neutralize it here, mobile only. */
   .hero-panels,.cards{align-items:start}             /* kill equal-height stretch when stacked */
   .cards{gap:16px}
+  .work-grid{grid-template-columns:1fr;gap:16px}
+  .work-item:first-child{grid-column:auto}
   .hpanel,.problem .card{min-height:0;padding:22px;height:auto} /* height driven by content */
   .problem .card{justify-content:flex-start}          /* top-align the flex column */
   .problem .card .crow{margin-bottom:0}               /* was margin-bottom:auto (the top-pin) */
@@ -415,6 +434,60 @@ section[id]{scroll-margin-top:88px}
       <div class="row"><span class="cc"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="rt"><b>Professional design</b><p>The same standard of polish you'd expect from a top software company — applied to your business.</p></div></div>
       <div class="row"><span class="cc"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="rt"><b>You own everything</b><p>The domain, the site, the content — all yours. No lock-in, no hostage situations.</p></div></div>
       <div class="row"><span class="cc"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="rt"><b>No ongoing contracts</b><p>Pay once for the work. Stay because you want to, never because you're trapped.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SELECTED WORK ============ -->
+<section class="sec work" id="work">
+  <div class="wash"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Selected work</span>
+      <h2>The same polish, built for businesses like yours.</h2>
+      <p class="lead">A look at recent sites — across clinics, studios, and local services. Every one designed, built, and handed over by us.</p>
+    </div>
+    <div class="work-grid">
+      <figure class="work-item glass reveal">
+        <div class="shot" style="background:linear-gradient(135deg,#efe9e1,#d8c8b4)">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="ph" style="color:#5b4b36">VALE Aesthetics<small>Subtle aesthetic care</small></div>
+          <img src="vale.png" alt="VALE Aesthetics website built by Frontage" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption><b>VALE Aesthetics</b><span>Medical aesthetics clinic</span></figcaption>
+      </figure>
+      <figure class="work-item glass reveal">
+        <div class="shot" style="background:linear-gradient(135deg,#1c1b19,#2c2620)">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="ph" style="color:#f3efe9">HavenIQ<small>Quietly intelligent</small></div>
+          <img src="haveniq.png" alt="HavenIQ website built by Frontage" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption><b>HavenIQ</b><span>Smart-home systems</span></figcaption>
+      </figure>
+      <figure class="work-item glass reveal">
+        <div class="shot" style="background:linear-gradient(135deg,#f3efe9,#ddd4c6)">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="ph" style="color:#2a2520">Forma House<small>Strength &amp; ritual</small></div>
+          <img src="forma-house.png" alt="Forma House website built by Frontage" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption><b>Forma House</b><span>Pilates & strength studio</span></figcaption>
+      </figure>
+      <figure class="work-item glass reveal">
+        <div class="shot" style="background:linear-gradient(135deg,#0a100a,#15281a)">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="ph" style="color:#9be870">Sentinel Layer<small>Quiet protection</small></div>
+          <img src="sentinel-layer.png" alt="Sentinel Layer website built by Frontage" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption><b>Sentinel Layer</b><span>Cybersecurity</span></figcaption>
+      </figure>
+      <figure class="work-item glass reveal">
+        <div class="shot" style="background:linear-gradient(135deg,#f1ece4,#dccfbf)">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="ph" style="color:#3a342c">Luma Dental House<small>Calm, precise care</small></div>
+          <img src="luma-dental.png" alt="Luma Dental House website built by Frontage" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption><b>Luma Dental House</b><span>Dental studio</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
