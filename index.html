@@ -280,7 +280,16 @@ section[id]{scroll-margin-top:88px}
   .hero .lead{font-size:16px;line-height:1.55;margin-top:18px}
   .hero-actions{flex-direction:column;gap:12px;margin-top:30px}
   .hero-actions .btn{width:100%}
-  .hero-panels{grid-template-columns:1fr;gap:14px;margin-top:18px}  /* card peeks under hero on mobile */
+  /* MOBILE: collapse the 3 value cards into a compact checkmark list inside the hero
+     so the whole pitch fits one screen with no card-scrolling (desktop keeps cards). */
+  .hero-panels{display:flex;flex-direction:column;align-items:center;gap:13px;margin-top:30px;max-width:none}
+  .hero-panels .hpanel{display:flex;align-items:center;gap:11px;width:auto;max-width:none;padding:0;
+    background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;text-align:left}
+  .hero-panels .hpanel::after{display:none}
+  .hero-panels .hpanel p{display:none}
+  .hero-panels .hpanel b{margin:0;font-size:16px;line-height:1.2}
+  .hero-panels .check{width:24px;height:24px}
+  .hero-panels .check svg{width:12px;height:12px}
 
   /* VERTICAL RHYTHM — consistent section padding top→bottom */
   .sec,.why{padding:72px 0}
@@ -337,11 +346,11 @@ section[id]{scroll-margin-top:88px}
         <a href="review.html" class="btn btn-primary">Get a Free Website Review <svg class="arr" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M6 4h6v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a href="#why" class="btn btn-glass">How it works</a>
       </div>
-    </div>
-    <div class="hero-panels">
+      <div class="hero-panels">
       <div class="hpanel"><span class="check"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>No contracts</b><p>Pay once for the work. Stay because you want to, never because you're trapped.</p></div>
       <div class="hpanel"><span class="check"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>You own everything</b><p>The domain, the site, and the content are all yours — no lock-in, ever.</p></div>
       <div class="hpanel"><span class="check"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Done in days, not months</b><p>Most sites go live in days, with no endless rounds of revisions.</p></div>
+      </div>
     </div>
   </div>
 </section>
