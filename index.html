@@ -274,13 +274,13 @@ section[id]{scroll-margin-top:88px}
   /* HERO owns the first screen on mobile: title+subtext+buttons centered in the
      viewport, value cards begin below the fold (a clean "page break"). */
   .hero-inner{padding-top:0;padding-bottom:68px}            /* .wrap keeps 22px side gutters */
-  .hero-stage{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:28px 0}
+  .hero-stage{min-height:84svh;display:flex;flex-direction:column;justify-content:center;padding-top:9svh;padding-bottom:0}
   .hero h1{font-size:clamp(25px,7vw,34px);letter-spacing:-0.025em;line-height:1.1}
   .hero h1 .ln{text-wrap:balance}                 /* even wrap per sentence — kills orphans */
   .hero .lead{font-size:16px;line-height:1.55;margin-top:18px}
   .hero-actions{flex-direction:column;gap:12px;margin-top:30px}
   .hero-actions .btn{width:100%}
-  .hero-panels{grid-template-columns:1fr;gap:14px;margin-top:38px}
+  .hero-panels{grid-template-columns:1fr;gap:14px;margin-top:18px}  /* card peeks under hero on mobile */
 
   /* VERTICAL RHYTHM — consistent section padding top→bottom */
   .sec,.why{padding:72px 0}
