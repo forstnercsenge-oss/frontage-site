@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Frontage — Websites for local businesses</title>
+<meta name="description" content="We build modern, professional websites for local businesses — done for you, live in days. You own everything." />
+<meta name="theme-color" content="#f1ece4" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23292420'/%3E%3Cpath d='M11 22V10h10M11 16h7' stroke='%23f1ece4' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#f1ece4; --paper:#f7f2ea; --card:#fffdfa; --card-2:#efe9e0;
+  --ink:#26211c; --soft:#544c43; --muted:#8d8478; --faint:#a99f90;
+  --line:rgba(38,33,28,.12); --line-2:rgba(38,33,28,.2);
+  --accent:#9c8466; --accent-deep:#7c674c;
+  --maxw:1200px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --sh-card:0 2px 4px rgba(38,33,28,.04),0 30px 56px -34px rgba(38,33,28,.34);
+  --sh-card-h:0 4px 8px rgba(38,33,28,.05),0 44px 72px -36px rgba(38,33,28,.44);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:var(--f);background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;font-weight:400;letter-spacing:-0.006em;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--ink);color:var(--bg)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+h1,h2,h3{font-family:var(--fd);font-weight:500;line-height:1.04;letter-spacing:-0.01em;color:var(--ink)}
+.lead{font-size:clamp(15px,1.2vw,17px);color:var(--soft);line-height:1.65;font-weight:400}
+.label{font-family:var(--f);font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 28px;border-radius:100px;font-family:var(--f);font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:1px solid transparent;transition:all .25s var(--ease)}
+.btn-dark{background:var(--ink);color:var(--bg)}
+.btn-dark:hover{background:var(--accent-deep);transform:translateY(-1px)}
+.btn-line{border-color:var(--line-2);color:var(--ink)}
+.btn-line:hover{border-color:var(--ink);background:rgba(38,33,28,.03)}
+.cta-circle{display:inline-flex;align-items:center;gap:14px;font-family:var(--f);font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.cta-circle .ring{width:52px;height:52px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;transition:all .25s var(--ease)}
+.cta-circle:hover .ring{background:var(--ink);border-color:var(--ink)}
+.cta-circle:hover .ring svg{color:var(--bg);transform:translate(2px,-2px)}
+.cta-circle .ring svg{width:16px;height:16px;color:var(--ink);transition:all .25s var(--ease)}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:100;background:rgba(241,236,228,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:.3s}
+header.nav.scrolled{border-bottom-color:var(--line);background:rgba(241,236,228,.92)}
+.nav-inner{height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.nav-left{display:flex;gap:34px}
+.nav-left a{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);transition:color .15s}
+.nav-left a:hover{color:var(--ink)}
+.brand{font-family:var(--fd);font-weight:600;font-size:27px;letter-spacing:.04em;text-align:center}
+.nav-right{display:flex;justify-content:flex-end}
+.nav-right .btn{height:44px;padding:0 22px}
+@media(max-width:820px){.nav-left{display:none}.nav-inner{grid-template-columns:1fr auto}.brand{text-align:left}}
+
+/* hero (kept — the typography you liked) */
+.hero{position:relative;padding:90px 0 0;text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;top:-10%;transform:translateX(-50%);width:1100px;height:600px;background:radial-gradient(50% 50% at 50% 50%,rgba(156,132,102,.1),transparent 70%);pointer-events:none}
+.hero .label{display:inline-block;margin-bottom:30px;position:relative}
+.hero h1{font-size:clamp(48px,9vw,128px);font-weight:500;line-height:.96;letter-spacing:-0.015em;position:relative}
+.hero h1 .it{font-style:italic;font-weight:400}
+.hero h1 .dim{color:var(--muted)}
+.hero .sub{max-width:500px;margin:34px auto 0;font-size:clamp(15px,1.3vw,18px);color:var(--soft);font-weight:400}
+.hero-actions{display:flex;gap:24px;justify-content:center;align-items:center;margin-top:42px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:18px;justify-content:center;margin-top:46px;flex-wrap:wrap;align-items:center}
+.hero-meta span{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hero-meta i{width:4px;height:4px;border-radius:50%;background:var(--line-2)}
+
+.showcase{position:relative;z-index:2;max-width:1080px;margin:74px auto 0;padding:0 40px}
+.frame{display:block;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 50px 100px -40px rgba(38,33,28,.42);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.frame:hover{transform:translateY(-5px);box-shadow:0 70px 120px -50px rgba(38,33,28,.48)}
+.frame .bar{height:42px;display:flex;align-items:center;gap:8px;padding:0 18px;background:#efe9e0;border-bottom:1px solid var(--line)}
+.frame .bar i{width:9px;height:9px;border-radius:50%;background:#cabfae;display:block}
+.frame .bar .url{margin-left:14px;font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.frame img{display:block;width:100%}
+
+/* section scaffold */
+.sec{position:relative;padding:128px 0}
+.sec-head{max-width:760px;margin:0 auto 68px;text-align:center}
+.sec-head .label{display:inline-block;margin-bottom:22px}
+.sec-head h2{font-size:clamp(34px,5.2vw,70px);font-weight:500;letter-spacing:-0.012em;line-height:1.02}
+.sec-head h2 .it{font-style:italic;font-weight:400}
+.sec-head p{margin:24px auto 0;max-width:520px}
+.divide{border-top:1px solid var(--line)}
+
+/* work — editorial asymmetric */
+.work{background:var(--paper)}
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:30px}
+.wcard{display:block;grid-column:span 6}
+.wcard.offset{margin-top:64px}
+.wcard .ph{overflow:hidden;background:var(--card-2);border-radius:5px;position:relative;box-shadow:var(--sh-card)}
+.wcard .ph img{width:100%;aspect-ratio:16/11;object-fit:cover;object-position:top center;transition:transform .8s var(--ease)}
+.wcard:hover .ph img{transform:scale(1.04)}
+.wcard .ph .view{position:absolute;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:rgba(247,242,234,.92);backdrop-filter:blur(6px);display:grid;place-items:center;opacity:0;transform:translateY(8px);transition:.3s var(--ease)}
+.wcard:hover .ph .view{opacity:1;transform:none}
+.wcard .ph .view svg{width:17px;height:17px;color:var(--ink)}
+.wcard .meta{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:20px 4px 0}
+.wcard .meta b{font-family:var(--fd);font-weight:500;font-size:24px}
+.wcard .meta span{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:860px){.wcard{grid-column:span 12}.wcard.offset{margin-top:0}}
+
+/* problem — elevated white cards */
+.problem{background:var(--bg)}
+.problem .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.problem .card{background:var(--card);border:1px solid rgba(38,33,28,.07);border-radius:5px;padding:40px 34px;display:flex;flex-direction:column;min-height:264px;box-shadow:var(--sh-card);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.problem .card:hover{transform:translateY(-6px);box-shadow:var(--sh-card-h)}
+.problem .card .n{font-family:var(--fd);font-style:italic;font-size:50px;font-weight:400;color:var(--accent);line-height:1;margin-bottom:auto}
+.problem .card h3{font-family:var(--fd);font-size:27px;font-weight:500;letter-spacing:-0.01em;margin:32px 0 12px}
+.problem .card p{font-size:14.5px;color:var(--soft);line-height:1.6}
+@media(max-width:780px){.problem .cards{grid-template-columns:1fr}}
+
+/* how it works — white cards */
+.how{background:var(--paper)}
+.how .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.how .scard{background:var(--card);border:1px solid rgba(38,33,28,.07);border-radius:5px;padding:40px 34px;box-shadow:var(--sh-card);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.how .scard:hover{transform:translateY(-6px);box-shadow:var(--sh-card-h)}
+.how .scard .sn{font-family:var(--fd);font-style:italic;font-size:42px;font-weight:400;color:var(--accent);line-height:1}
+.how .scard b{font-family:var(--fd);font-size:24px;font-weight:500;display:block;margin:20px 0 10px;letter-spacing:-0.01em}
+.how .scard p{font-size:14.5px;color:var(--soft);line-height:1.6}
+@media(max-width:780px){.how .steps3{grid-template-columns:1fr}}
+
+/* why us — live-site layout, luxe + high contrast */
+.why{background:var(--bg)}
+.why-in{display:grid;grid-template-columns:.92fr 1.08fr;gap:72px;align-items:center}
+.why-copy .label{display:block;margin-bottom:22px}
+.why-copy h2{font-size:clamp(30px,4vw,52px);font-weight:500;letter-spacing:-0.012em;line-height:1.04}
+.why-copy h2 .it{font-style:italic;font-weight:400}
+.why-copy p{margin:24px 0 0;max-width:380px}
+.why-copy .cta-circle{margin-top:36px}
+.feat{background:var(--card);border:1px solid rgba(38,33,28,.07);border-radius:6px;padding:8px 40px;box-shadow:var(--sh-card)}
+.feat .row{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:26px 0;border-top:1px solid var(--line);align-items:start}
+.feat .row:first-child{border-top:none}
+.feat .ck{width:30px;height:30px;border-radius:50%;background:var(--ink);display:grid;place-items:center;margin-top:3px}
+.feat .ck svg{width:15px;height:15px;color:var(--bg)}
+.feat b{font-family:var(--fd);font-size:21px;font-weight:500;display:block;margin-bottom:5px;letter-spacing:-0.01em}
+.feat p{font-size:14.5px;color:var(--soft);line-height:1.6;max-width:460px}
+@media(max-width:820px){.why-in{grid-template-columns:1fr;gap:44px}.why-copy{text-align:center}.why-copy p{margin-left:auto;margin-right:auto}.feat{padding:8px 28px}}
+
+/* closing */
+.close{background:var(--ink);color:var(--bg);text-align:center}
+.close .label{color:var(--accent)}
+.close h2{color:var(--bg);font-size:clamp(36px,6vw,88px);font-weight:500;letter-spacing:-0.015em;line-height:1.0;max-width:15ch;margin:24px auto 0}
+.close h2 .it{font-style:italic;font-weight:400}
+.close p{margin:26px auto 0;max-width:420px;color:rgba(241,236,228,.66)}
+.close .btn{margin-top:44px;background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.close .btn:hover{background:transparent;color:var(--bg)}
+
+/* footer */
+footer{background:var(--ink);color:rgba(241,236,228,.6);padding:0 0 40px}
+.foot-top{padding:80px 0 50px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;border-top:1px solid rgba(241,236,228,.14)}
+.foot-brand .brand{color:var(--bg);text-align:left;margin-bottom:18px}
+.foot-brand p{font-size:14px;max-width:280px;color:rgba(241,236,228,.55)}
+.foot-col h5{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--bg);margin-bottom:20px}
+.foot-col a{display:block;font-size:14px;margin-bottom:12px;color:rgba(241,236,228,.6);transition:color .15s}
+.foot-col a:hover{color:var(--bg)}
+.foot-bot{padding-top:30px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(241,236,228,.4);flex-wrap:wrap;gap:12px}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+section[id]{scroll-margin-top:90px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}}
+@media(max-width:640px){
+  .wrap{padding:0 24px}.sec{padding:84px 0}
+  .hero{padding-top:60px}.showcase{margin-top:50px;padding:0 24px}
+  .hero-actions{flex-direction:column;gap:20px}
+  .foot-top{grid-template-columns:1fr;gap:32px}
+  .frame .bar .url{display:none}
+}
+@media(hover:none){.frame:hover,.wcard:hover .ph img,.problem .card:hover,.how .scard:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <nav class="nav-left"><a href="#work">Work</a><a href="#how">Process</a><a href="#why">Why us</a></nav>
+    <a class="brand" href="#top">FRONTAGE</a>
+    <div class="nav-right"><a href="review.html" class="btn btn-dark">Free Review</a></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="label">Now booking local businesses · Live in days</span>
+    <h1>Your business is <span class="it">impressive.</span><br><span class="dim">Your website should be too.</span></h1>
+    <p class="sub">We design and build modern websites for local businesses — done for you, live in days, and yours to keep.</p>
+    <div class="hero-actions">
+      <a href="review.html" class="btn btn-dark">Get a Free Website Review</a>
+      <a href="#work" class="cta-circle"><span class="ring"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M5 3h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>See our work</a>
+    </div>
+    <div class="hero-meta"><span>Done in days, not months</span><i></i><span>You own everything</span><i></i><span>No contracts</span></div>
+  </div>
+  <div class="showcase reveal">
+    <a class="frame" href="work/harbour-goods.html" aria-label="View the Harbour Goods website">
+      <div class="bar"><i></i><i></i><i></i><span class="url">harbourgoods.co</span></div>
+      <img src="assets/work/harbour-goods.png" alt="Harbour Goods website built by Frontage" loading="eager" />
+    </a>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="sec work divide" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Recent work</span>
+      <h2>Real sites, <span class="it">live in days.</span></h2>
+      <p class="lead">A few recent builds. Every one is fast, mobile-first, and owned outright by the business.</p>
+    </div>
+    <div class="work-grid">
+      <a class="wcard reveal" href="work/harbour-goods.html">
+        <div class="ph"><img src="assets/work/harbour-goods.png" alt="Harbour Goods website" loading="lazy" /><span class="view"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M5 3h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+        <div class="meta"><b>Harbour Goods</b><span>Retail</span></div>
+      </a>
+      <a class="wcard offset reveal" href="work/bloom-dental.html">
+        <div class="ph"><img src="assets/work/bloom-dental.png" alt="Bloom Dental website" loading="lazy" /><span class="view"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M5 3h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+        <div class="meta"><b>Bloom Dental</b><span>Clinic</span></div>
+      </a>
+      <a class="wcard reveal" href="work/sienna-studio.html" style="grid-column:4 / span 6;margin-top:-12px">
+        <div class="ph"><img src="assets/work/sienna-studio.png" alt="Sienna Studio website" loading="lazy" /><span class="view"><svg viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M5 3h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+        <div class="meta"><b>Sienna Studio</b><span>Salon</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="sec problem divide" id="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>A great business loses customers <span class="it">to a poor website.</span></h2>
+      <p class="lead">Most local sites fail at three simple things — and each one quietly sends customers to a competitor.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><span class="n">01</span><h3>Customers can't find you.</h3><p>You don't show up where people search. The ones looking for exactly what you offer never make it to your door.</p></div>
+      <div class="card reveal"><span class="n">02</span><h3>Customers can't reach you.</h3><p>Hours are wrong, the phone number is buried, the form is broken. Reaching you takes more effort than it should.</p></div>
+      <div class="card reveal"><span class="n">03</span><h3>Customers don't trust you.</h3><p>An outdated site makes a strong business look uncertain. People decide in seconds — and a dated page costs you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec how divide" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">How it works</span>
+      <h2>Three steps, <span class="it">then it's yours.</span></h2>
+      <p class="lead">No marketing department required. You send a link — we handle the rest.</p>
+    </div>
+    <div class="steps3">
+      <div class="scard reveal"><span class="sn">01</span><b>We review &amp; plan</b><p>You send a link. We send back honest, specific notes and a clear plan — within one business day. No jargon, no pressure.</p></div>
+      <div class="scard reveal"><span class="sn">02</span><b>We design &amp; build</b><p>We write, design, and build the whole site to the standard you'd expect from a top software company. You don't touch a thing.</p></div>
+      <div class="scard reveal"><span class="sn">03</span><b>You go live — and own it</b><p>Most sites go live in days. The domain, the site, and the content are all yours. No lock-in, no contracts, ever.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US (live-site layout, luxe) -->
+<section class="sec why divide" id="why">
+  <div class="wrap why-in">
+    <div class="why-copy reveal">
+      <span class="label">Why Frontage</span>
+      <h2>Built for owners who'd rather <span class="it">run their business.</span></h2>
+      <p class="lead">You shouldn't need a marketing department to look professional online. We make the whole thing effortless — and the result is yours to keep.</p>
+      <a href="review.html" class="cta-circle"><span class="ring"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Get a Free Review</a>
+    </div>
+    <div class="feat reveal">
+      <div class="row"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Done-for-you</b><p>You don't touch a thing. We write, design, build, and publish the entire site.</p></div></div>
+      <div class="row"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Fast turnaround</b><p>Most sites go live in days. No three-month timelines, no endless revisions.</p></div></div>
+      <div class="row"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Professional design</b><p>The same standard of polish you'd expect from a top software company — applied to your business.</p></div></div>
+      <div class="row"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>You own everything</b><p>The domain, the site, the content — all yours. No lock-in, no hostage situations.</p></div></div>
+      <div class="row"><span class="ck"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>No ongoing contracts</b><p>Pay once for the work. Stay because you want to, never because you're trapped.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="sec close" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label">Get started</span>
+      <h2>Let's make your business <span class="it">look the part.</span></h2>
+      <p>One short call. We design it, build it, and handle the rest — you own the result.</p>
+      <a href="review.html" class="btn">Get a Free Website Review</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand">FRONTAGE</div>
+        <p>Modern websites for local businesses. Done for you, live in days, and yours to keep.</p>
+      </div>
+      <div class="foot-col"><h5>Company</h5><a href="#work">Work</a><a href="#how">Process</a><a href="#why">Why us</a><a href="#">Privacy</a></div>
+      <div class="foot-col"><h5>Get in touch</h5><a href="mailto:hello@frontage.co">hello@frontage.co</a><a href="review.html">Free website review</a></div>
+    </div>
+    <div class="foot-bot"><span>© 2026 Frontage</span><span>Made for local businesses</span></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.querySelector('header.nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
